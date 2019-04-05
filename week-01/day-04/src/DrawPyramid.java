@@ -4,37 +4,22 @@ public class DrawPyramid {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int numberOfLines = input.nextInt();
-        String stars = "*";
-        String emptyString = "";
-        for (int i = 0; i < (numberOfLines - 1); i++) {
-            emptyString += " ";
-        }
-        emptyString += "*";
-        System.out.println(emptyString);
-        String emptyStringLoop = "";
-        for (int i = 0; i < numberOfLines; i++) {
-            for (int j = 0; j < (numberOfLines - 1 - i); j++) {
-                emptyStringLoop += " ";
-            }
-            emptyStringLoop += "**";
-            System.out.println(emptyStringLoop);
-        }
-        /*for (int i = 0; i < numberOfLines; i++) {
-            for (int j = (numberOfLines - i); j > 0 ; j--) {
-                if (j == 1) {
-                    emptyString += "*";
+        int maxWidth = numberOfLines * 2;
+        int centerOfPyramid = maxWidth / 2;
+
+        for (int i = 0; i <= numberOfLines; i++) {
+            String line = "";
+            for (int j = 0; j <= maxWidth; j++) {
+                if ( j < centerOfPyramid - i || j > centerOfPyramid + i) {
+                    line += " ";
+
                 } else {
-                    emptyString += " ";
+                    line += "*";
+
                 }
             }
-            if (i > 0) {
-                emptyString += "**";
-                System.out.println(emptyString);
-            } else {
-                System.out.println(emptyString);
-            }
-        }*/
-
+            System.out.println(line);
+        }
         // Write a program that reads a number from the standard input, then draws a
         // pyramid like this:
         //

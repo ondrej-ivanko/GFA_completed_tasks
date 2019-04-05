@@ -8,12 +8,12 @@ public class PartyIndicator {
 
         if ((boys == girls) && ((boys + girls) >= 20)) {
             System.out.println("Party is excellent!");
-        } else if ((boys != girls) && ((boys + girls) >= 20)) {
+        } else if ((boys != girls) && ((boys + girls) >= 20) && (girls > 0)) {
             System.out.println("Quite cool party!");
+        } else if (boys + girls <= 20 && girls > 0) {
+            System.out.println("Average party...");
         } else if (girls <= 0) {
             System.out.println("Sausage party.");
-        } else if (boys + girls <= 20) {
-            System.out.println("Average party...");
         }
 // It should print: The party is excellent!
 // If the the number of girls and boys are equal and 20 or more people are coming to the party
