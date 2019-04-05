@@ -7,7 +7,7 @@ public class DrawPyramid {
         int maxWidth = numberOfLines * 2;
         int centerOfPyramid = maxWidth / 2;
 
-        for (int i = 0; i <= numberOfLines; i++) {
+        for (int i = 0; i <= numberOfLines - 1; i++) {
             String line = "";
             for (int j = 0; j <= maxWidth; j++) {
                 if ( j < centerOfPyramid - i || j > centerOfPyramid + i) {
