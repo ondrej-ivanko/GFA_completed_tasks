@@ -4,14 +4,13 @@ public class DrawDiamond {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int numberOfLines = input.nextInt();
-        int maxWidth = numberOfLines;
-        int center = maxWidth / 2;
+        int center = numberOfLines / 2;
         int holder = 1;
 
         for (int i = 0; i <= numberOfLines; i++) {
             String line = "";
             if (i <= center) {
-                for (int j = 0; j <= maxWidth; j++) {
+                for (int j = 0; j <= numberOfLines; j++) {
                     if (j < center - i || j > center + i) {
                         line += " ";
                     } else {
@@ -20,8 +19,8 @@ public class DrawDiamond {
                 }
             } else {
 
-                for (int j = 0; j <= maxWidth; j++) {
-                    if (j >= maxWidth - (maxWidth - holder) && j < maxWidth - holder) {
+                for (int j = 0; j <= numberOfLines; j++) {
+                    if (j >= numberOfLines - (numberOfLines - holder) && j < numberOfLines - holder) {
                         line += "*";
                     } else {
                         line += " ";
