@@ -5,7 +5,8 @@ public class MultiplicationTable {
         Scanner input = new Scanner(System.in);
         int number = input.nextInt();
         for (int i = 1; i <= 10; i++) {
-            System.out.println(number * i);
+            String result = i + " * " + number + " = " + (i * number);
+            System.out.println(result);
 
         }
         // Create a program that asks for a number and prints the multiplication table with that number
