@@ -7,7 +7,7 @@ public class PrintBigger {
         int num2 = input.nextInt();
         if (num1 > num2) {
             System.out.println(num1);
-        } else {
+        } else if (num2 > num1) {
             System.out.println(num2);
         }
         // Write a program that asks for two numbers and prints the bigger one

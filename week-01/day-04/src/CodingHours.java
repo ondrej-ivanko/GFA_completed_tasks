@@ -11,7 +11,7 @@ public class CodingHours {
         int monthlyHours = (6 * 5) * 17;
         int workHours = 52 * 17;
         int percentHoursTotal = monthlyHours / (workHours / 100);
-        System.out.println("Attendee prints in average " + monthlyHours + " hours per semester");
+        System.out.println("Attendee codes in average " + monthlyHours + " hours per semester");
         System.out.println("Percentage of hours spent coding is " + percentHoursTotal);
     }
 }

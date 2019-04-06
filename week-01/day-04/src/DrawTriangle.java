@@ -5,7 +5,7 @@ public class DrawTriangle {
         Scanner input = new Scanner(System.in);
         int number = input.nextInt();
         String stars = "";
-        for (int i = 1; i < number; i++) {
+        for (int i = 1; i <= number; i++) {
             System.out.println(stars = stars + "*");
         }
         // Write a program that reads a number from the standard input, then draws a

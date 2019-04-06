@@ -17,7 +17,7 @@ public class GuessTheNumber {
         // of the following:
         //
         // The stored number is higher
-        // The stried number is lower
+        // The stored number is lower
         // You found the number: 8
     }
 

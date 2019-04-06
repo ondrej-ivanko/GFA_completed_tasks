@@ -8,9 +8,9 @@ public class OddEven {
 
 
         if (condition) {
-            System.out.println("Odd");
-        } else {
             System.out.println("Even");
+        } else {
+            System.out.println("Odd");
         }
 
     }
