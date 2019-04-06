@@ -20,10 +20,24 @@ public class DrawDiamond {
             } else {
 
                 for (int j = 0; j <= numberOfLines; j++) {
-                    if (j >= numberOfLines - (numberOfLines - holder) && j < numberOfLines - holder) {
-                        line += "*";
+                    if (numberOfLines % 2 != 0) {
+                        if (j >= numberOfLines - (numberOfLines - holder) && j < numberOfLines - holder) {
+                            line += "*";
+                        } else {
+                            line += " ";
+                        }
+                    /* In code below is the optimization of code in case user inputs even numbers. Even numbers cannot
+                    create perfectly symmetrical diamond. I inserted conditional which extends right bottom side of
+                    the diamond shape, which adds an extra line to given number of lines. It could also be solved by
+                    shortening the diamond in top half, so it does not extend over given amount of lines. Or by mirroring
+                    the bottom half of diamond so it reflects below.
+                     */
                     } else {
-                        line += " ";
+                        if (j >= numberOfLines - (numberOfLines - holder) && j <= numberOfLines - holder) {
+                            line += "*";
+                        } else {
+                            line += " ";
+                        }
                     }
                 }
                 holder += 1;
