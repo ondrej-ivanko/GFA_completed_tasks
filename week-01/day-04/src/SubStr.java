@@ -4,9 +4,9 @@ public class SubStr {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String StringWeLookFor = input.nextLine();
-        String SearchedString = input.nextLine();
+        String SearchedSubString = input.nextLine();
 
-        int stringIndex = StringWeLookFor.indexOf(SearchedString);
+        int stringIndex = StringWeLookFor.indexOf(SearchedSubString);
         if (stringIndex > 0) {
             System.out.println(stringIndex);
         } else {
