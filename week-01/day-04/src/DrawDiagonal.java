@@ -6,7 +6,7 @@ public class DrawDiagonal {
         int number = input.nextInt();
 
         for (int i = 0; i <= number; i++) {
-            String line = "%";
+            String line = "";
             if (i == 0 || i == number) {
                 for (int j = 0; j <= number; j++) {
                     line += "%";
@@ -14,7 +14,7 @@ public class DrawDiagonal {
                 System.out.println(line);
             } else {
                 for (int y = 0; y <= number; y++) {
-                    if (y == i || y == number) {
+                    if (y == i || y == 0 || y == number) {
                         line += "%";
                     } else {
                         line += " ";
