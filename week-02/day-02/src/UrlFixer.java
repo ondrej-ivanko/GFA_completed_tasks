@@ -8,7 +8,7 @@ public class UrlFixer {
         // Also, the URL is missing a crucial component, find out what it is and insert it too!
         // Try to solve it more than once using different String functions!
         //First solution:
-        url = url.replace("bots", "odds").replace("//", "://");
+        /*url = url.replace("bots", "odds").replace("//", "://");
         System.out.println(url);
         //Second solution:
         String subString1 = url.substring(0,5).concat(":");
