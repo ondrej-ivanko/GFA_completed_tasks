@@ -5,8 +5,12 @@ public class TakesLonger {
         // When saving this quote a disk error has occurred. Please fix it.
         // Add "always takes longer than" to the StringBuilder (quote) between the words "It" and "you"
         // Using pieces of the quote variable (instead of just redefining the string)
-        int idx = quote.indexOf("It");
-        quote = quote.substring(0, idx + 2).concat(" always takes longer than").concat(quote.substring(idx + 2));
+        String border = "you";
+        String toInsert = "always takes longer than ";
+        int idx = quote.indexOf(border);
+        quote = quote.substring(0, idx)
+                .concat(toInsert)
+                .concat(quote.substring(idx));
 
         System.out.println(quote);
     }
