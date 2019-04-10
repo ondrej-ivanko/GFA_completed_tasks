@@ -8,10 +8,8 @@ public class CenteredSquare {
 
     public static void mainDraw(Graphics graphics) {
         // Draw a green 10x10 square to the canvas' center.
-        int x = 20;
-        int y = 20;
-        graphics.setColor(Color.green);
-        graphics.drawRect(x, y, x + 10, y + 10);
+        graphics.setColor(Color.GREEN);
+        graphics.drawRect(WIDTH / 2  - 5, HEIGHT / 2 - 5, 10, 10);
     }
 
     // Don't touch the code below
