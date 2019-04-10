@@ -16,8 +16,8 @@ public class PositionSquare {
         int y = 0;
         for (int i = 0; i <= 2; i++) {
             draw3Squares(x, y, graphics);
-            x += 35;
-            y += 47;
+            x += (int)(Math.random() * 100);
+            y += (int)(Math.random() * 100);
         }
 
 

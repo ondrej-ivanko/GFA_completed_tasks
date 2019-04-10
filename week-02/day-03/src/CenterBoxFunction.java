@@ -13,7 +13,11 @@ public class CenterBoxFunction {
         // draw 3 squares with that function.
         // avoid code duplication.
         int size = 150;
-        squareDraw(size, graphics);
+        for (int i = 0; i <= 2; i++) {
+            squareDraw(size, graphics);
+            size += (int)(Math.random() * 100);
+        }
+
 
     }
 
