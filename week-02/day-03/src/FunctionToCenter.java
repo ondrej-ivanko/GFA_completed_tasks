@@ -14,12 +14,12 @@ public class FunctionToCenter {
         int incrementOfCoordinates = HEIGHT / linesDistance;
         int x = 0;
         int y = 0;
-        for (int i = 0; i <= 4 * incrementOfCoordinates; i++) {
+        for (int i = 0; i < 4 * incrementOfCoordinates; i++) {
             writeLine(x, y, graphics);
-            if (i <= incrementOfCoordinates + 3) {y += incrementOfCoordinates;}
-            else if (i <= incrementOfCoordinates * 2) {x += incrementOfCoordinates;}
-            else if (i <= incrementOfCoordinates * 3) {y -= incrementOfCoordinates;}
-            else if (i <= incrementOfCoordinates * 4) {x -= incrementOfCoordinates;}
+            if (i < incrementOfCoordinates) {y += incrementOfCoordinates;}
+            else if (i < incrementOfCoordinates * 2) {x += incrementOfCoordinates;}
+            else if (i < incrementOfCoordinates * 3) {y -= incrementOfCoordinates;}
+            else if (i < incrementOfCoordinates * 4) {x -= incrementOfCoordinates;}
 
         }
     }
