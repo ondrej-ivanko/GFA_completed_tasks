@@ -16,6 +16,7 @@ public class ConnectTheDots {
         int[][] newArray = {{10, 10}, {290,  10}, {290, 290}, {10, 290}};
         int[][] secondArray = {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70}, {120, 100}, {85, 130}, {50, 100}};
         connectDots(newArray, graphics);
+        connectDots(secondArray, graphics);
 
 
     }
@@ -27,7 +28,17 @@ public class ConnectTheDots {
                 coordArray.add(element);
                 }
             }
-        graphics.drawLine(coordArray[1], coordArray[2], coordArray[3], coordArray[4]);
+        int idx = 0;
+        int idx2 = idx + 1;
+        for (int i = 0; i < coordArray.size() / 2; i++) {
+            if (i == coordArray.size() / 2 - 1) {
+                graphics.drawLine(coordArray.get(idx), coordArray.get(idx2), coordArray.get(0), coordArray.get(1));
+            } else {
+                graphics.drawLine(coordArray.get(idx), coordArray.get(idx2), coordArray.get(idx + 2), coordArray.get(idx2 + 2));
+                if (i < coordArray.size() / 2 - 1) idx = idx + 2; idx2 = idx2 + 2;
+            }
+        }
+
     }
 
     // Don't touch the code below
