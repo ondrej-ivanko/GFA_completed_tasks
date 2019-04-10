@@ -10,12 +10,17 @@ public class GoToCenter {
         // The x and y coordinates of the line's starting point and the graphics
         // and draws a line from that point to the center of the canvas.
         // Draw 3 lines with that function. Use loop for that.
-        DrawF(15, 25, graphics);
+        int x = 15;
+        int y = 25;
+        for (int i = 0; i <= 2; i++) {
+            DrawF(x, y, graphics);
+            x += 54;
+            y += 20;
+        }
+
     }
     public static void DrawF(int coordinate1, int coordinate2, Graphics graphics) {
-        for (int i = 0; i < 2; i++) {
-            graphics.drawLine(coordinate1, coordinate2, WIDTH / 2, HEIGHT / 2);
-        }
+        graphics.drawLine(coordinate1, coordinate2, WIDTH / 2, HEIGHT / 2);
     }
 
     // Don't touch the code below

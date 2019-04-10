@@ -4,24 +4,16 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class HorizontalLines {
-    public static void mainDraw(Graphics graphics) {
-        // Create a line drawing function that takes 3 parameters:
-        // The x and y coordinates of the line's starting point and the graphics
-        // and draws a 50 long horizontal line from that point.
-        // Draw 3 lines with that function. Use loop for that.
-        int x = 0;
-        int y = 68;
-        for (int i = 0; i <= 2; i++) {
-            DrawFunction(x, y, graphics);
-            y += 15;
-        }
+public class PositionSquare {
 
-    }
+    public static void mainDraw(Graphics graphics){
+        // create a square drawing function that takes 3 parameters:
+        // the x and y coordinates of the square's top left corner and the graphics
+        // and draws a 50x50 square from that point.
+        // draw 3 squares with that function.
+        // avoid code duplication.
 
-    public static void DrawFunction(int xCoord, int yCoord, Graphics graphics) {
-        int horizonHolder = 50;
-        graphics.drawLine(0, yCoord, xCoord + horizonHolder, yCoord);
+
     }
 
     // Don't touch the code below
@@ -46,4 +38,5 @@ public class HorizontalLines {
             mainDraw(graphics);
         }
     }
+
 }
