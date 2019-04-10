@@ -12,8 +12,21 @@ public class PositionSquare {
         // and draws a 50x50 square from that point.
         // draw 3 squares with that function.
         // avoid code duplication.
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i <= 2; i++) {
+            draw3Squares(x, y, graphics);
+            x += 35;
+            y += 47;
+        }
 
 
+    }
+
+    public static void draw3Squares(int xCoord, int yCoord, Graphics graphics) {
+        int width = 50;
+        int height = 50;
+        graphics.drawRect(xCoord, yCoord, width, height);
     }
 
     // Don't touch the code below
