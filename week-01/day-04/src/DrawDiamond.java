@@ -18,7 +18,6 @@ public class DrawDiamond {
                     }
                 }
             } else {
-
                 for (int j = 0; j <= numberOfLines; j++) {
                     if (numberOfLines % 2 != 0) {
                         if (j >= numberOfLines - (numberOfLines - holder) && j < numberOfLines - holder) {
@@ -43,12 +42,9 @@ public class DrawDiamond {
                 holder += 1;
             }
             System.out.println(line);
-
         }
-
-
-
-
+    }
+}
         // Write a program that reads a number from the standard input, then draws a
         // diamond like this:
         //
@@ -62,5 +58,4 @@ public class DrawDiamond {
         //    *
         //
         // The diamond should have as many lines as the number was
-    }
-}
+

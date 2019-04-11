@@ -17,6 +17,8 @@ public class PartyIndicator {
         } else {
             System.out.println("Sausage party.");
         }
+    }
+}
         // It should print: The party is excellent!
         // If the the number of girls and boys are equal and 20 or more people are coming to the party
         //
@@ -28,5 +30,3 @@ public class PartyIndicator {
         //
         // It should print: Sausage party
         // If no girls are coming, regardless the count of the people
-    }
-}

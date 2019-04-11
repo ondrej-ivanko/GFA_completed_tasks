@@ -4,7 +4,8 @@ public class IWontCheatOnTheExams {
         for (int i = 0; i < 100; i++) {
             System.out.println(line);
         }
-        // Create a program that writes this line 100 times:
-// "I won't cheat on the exam!"
     }
 }
+        // Create a program that writes this line 100 times:
+        // "I won't cheat on the exam!"
+

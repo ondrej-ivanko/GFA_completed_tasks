@@ -6,13 +6,9 @@ public class StringsAgainAndAgain {
 
     public static String stringsAgain(String sentence, int count) {
         if (count <= 0) return sentence;
-        String character = sentence.substring(count, count + 1);
         String followingChar = sentence.substring(count - 1, count);
-        if (character != " " && character != "*") {
-            if (followingChar != " ") {
-                sentence = sentence.replace(character, "*" + character);
-            }
-        }
+        if (followingChar.equals(" ")) return stringsAgain(sentence, count - 2);
+        sentence = sentence.substring(0, count).concat("*" + sentence.substring(count));
         return stringsAgain(sentence, count - 1);
     }
 }

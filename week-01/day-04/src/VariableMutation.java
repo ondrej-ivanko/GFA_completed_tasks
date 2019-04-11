@@ -22,7 +22,7 @@ public class VariableMutation {
 
         int e = 8;
         // please cube of e's value
-        Math.pow(e, 2);
+        e = (int) Math.pow(e, 3);
         System.out.println(e);
 
         int f1 = 123;

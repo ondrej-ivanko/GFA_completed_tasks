@@ -11,6 +11,5 @@ public class PrintBigger {
             System.out.println(num2);
         }
         // Write a program that asks for two numbers and prints the bigger one
-
     }
 }

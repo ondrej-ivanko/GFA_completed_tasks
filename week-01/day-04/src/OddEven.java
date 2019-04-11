@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class OddEven {
     public static void main(String[] args) {
-        Scanner userinput = new Scanner(System.in);
-        int number = userinput.nextInt();
+        Scanner userInput = new Scanner(System.in);
+        int number = userInput.nextInt();
         boolean condition = number % 2 == 0;
 
 

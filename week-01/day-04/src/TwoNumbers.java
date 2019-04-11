@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TwoNumbers {
     public static void main(String[] args) {
         // Create a program that prints a few operations on two numbers: 22 and 13
@@ -13,11 +15,13 @@ public class TwoNumbers {
         // Print the integer part of 22 divided by 13
 
         // Print the remainder of 22 divided by 13
-        System.out.println(13 + 22);
-        System.out.println(22 - 13);
-        System.out.println(22 * 13);
-        System.out.println(22 / 13f);
-        System.out.println(22 / 13);
-        System.out.println(22 % 13);
+        int a = 13;
+        int b = 22;
+        System.out.println(a + b);
+        System.out.println(b - a);
+        System.out.println(a * b);
+        System.out.println(b / (float) a);
+        System.out.println(b / a);
+        System.out.println(a % b);
     }
 }

@@ -5,9 +5,9 @@ public class Cuboid {
         double sideC = 55;
 
         double volume = sideA * sideB * sideC;
-        System.out.println("Volume: " + volume);
+        System.out.println("Volume: " + (int) volume);
         double surface = 2 * ((sideA * sideB) + (sideB * sideC) + (sideC * sideA));
-        System.out.println("Surface Area: " + surface);
+        System.out.println("Surface Area: " + (int) surface);
     }
 }
         // Write a program that stores 3 sides of a cuboid as variables (doubles)
