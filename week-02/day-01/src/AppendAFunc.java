@@ -5,8 +5,7 @@ public class AppendAFunc {
     }
 
     public static String appendAFunc(String anyString) {
-        String letter = "a";
-        return anyString +=letter;
+        return anyString += "a";
     }
     // - Create a string variable named `typo` and assign the value `Chinchill` to it
     // - Write a function called `appendAFunc` that gets a string as an input,

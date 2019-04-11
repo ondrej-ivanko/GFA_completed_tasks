@@ -1,6 +1,6 @@
 public class Factorio {
     public static void main(String[] args) {
-        System.out.println(factorio(4));
+        System.out.println(factorio(8));
     }
 
     public static int factorio(int number) {

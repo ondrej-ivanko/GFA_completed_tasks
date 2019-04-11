@@ -10,14 +10,20 @@ public class Unique {
         //  should print: `[1, 11, 34, 52, 61]`
     }
     public static String unique(int[] array) {
-        int[] seen = {array.length-1};
-
+        int[] seen = {};
         for (int i = 0; i < array.length; i++) {
-            int idx = 0;
-            for (int y = 0; y < seen.length; y++) {
-                if (array[i] != seen[y]) {
-                    seen[idx] += array[i];
-                    idx++;
+            if (seen.length <= 0) {
+                seen = Arrays.copyOf(seen, seen.length + 1);
+                seen[seen.length - 1] = array[i];}
+            else {
+                int wasSeen = 0;
+                for (int y = 0; y < seen.length; y++) {
+                    if (array[i] == seen[y]) {
+                        wasSeen += 1;
+                    }
+                }
+                if (wasSeen == 0) { seen = Arrays.copyOf(seen, seen.length + 1);
+                seen[seen.length - 1] = array[i];
                 }
             }
         }

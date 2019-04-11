@@ -15,18 +15,13 @@ public class SubInt {
         // The best I can do with limited options and resources to my disposal.
     }
     public static String subInt(int num, int[] array) {
-        int[] list = new int[array.length];
-        int helper = 0;
+        int[] newArray = {};
         for (int i = 0; i < array.length; i++) {
-            int digit = array[i] % 10;
-            if (array[i] == num || digit == num) {
-                int idx = Arrays.binarySearch(array, array[i]);
-                list[helper] = idx;
-                helper++;
+            if (array[i] == num || array[i] % 10 == num || array[i] / 10 == num) {
+                newArray = Arrays.copyOf(newArray, newArray.length + 1);
+                newArray[newArray.length - 1] = i;
+                }
             }
-
-
-        }return Arrays.toString(list);
-
+        return Arrays.toString(newArray);
     }
 }
