@@ -6,27 +6,41 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
     public class RecursedSquaresDrawing {
         public static void mainDraw(Graphics graphics) {
+            int rectHeight = HEIGHT;
+            int rectWidth = WIDTH;
+            int x = 0;
+            int y = 0;
             int repetition = 5;
-            int times = 4;
-            drawCross(graphics, repetition, times);
+            graphics.setColor(Color.YELLOW);
+            graphics.fillRect(x, y, rectWidth, rectHeight);
+            drawSquares(graphics, x, y, rectWidth, rectHeight, repetition);
+
     }
 
 
-        public static void drawCross(Graphics graphics, int count, int origin) {
+        /*public static void drawCross(Graphics graphics, int xCoord, int yCoord, int width, int height, int count) {
             if (count <= 0) return;
-            graphics.drawRect(0, HEIGHT / 3, HEIGHT / 3, WIDTH / 3);
-            graphics.drawRect(WIDTH / 3, 0, HEIGHT / 3, WIDTH / 3);
-            graphics.drawRect((WIDTH / 3) * 2, HEIGHT / 3, HEIGHT / 3, WIDTH / 3);
-            graphics.drawRect(HEIGHT / 3, (HEIGHT / 3) * 2, HEIGHT / 3, WIDTH / 3);
-            drawCross(graphics, count - 1, 0);
+            graphics.drawRect(xCoord, height / 3, width, height / 3);
+            graphics.drawRect(width / 3, yCoord, width / 3, height);
+
+            drawCross(graphics, xCoord, yCoord  + ((width / 3) / 3), width / 3, height / 3, count - 1);
+            drawCross(graphics, xCoord + ((width / 3) / 3), yCoord, width / 3, height / 3, count - 1);
+        }*/
+
+        public static void drawSquares(Graphics graphics, int xCoord, int yCoord, int width, int height, int count) {
+            if (count > 0) { graphics.setColor(Color.BLACK);
+            graphics.drawRect(xCoord, yCoord, width, height);
+
+            drawSquares(graphics, xCoord + width / 3, yCoord, width / 3, width / 3, count - 1);
+            drawSquares(graphics, xCoord, yCoord + width / 3, width / 3, width / 3, count - 1);
+            drawSquares(graphics, xCoord + width / 3, yCoord + 2 * width / 3, width / 3, width / 3, count - 1);
+            drawSquares(graphics, xCoord + 2 * width / 3, yCoord + width / 3, width / 3, width / 3, count - 1);
+            }
         }
 
-
-
-
-    // Don't touch the code below
-    static int WIDTH = 320;
-    static int HEIGHT = 320;
+            // Don't touch the code below
+        static int WIDTH = 320;
+        static int HEIGHT = 320;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");

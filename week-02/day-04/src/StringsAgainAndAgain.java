@@ -6,9 +6,11 @@ public class StringsAgainAndAgain {
 
     public static String stringsAgain(String sentence, int count) {
         if (count <= 0) return sentence;
-        String followingChar = sentence.substring(count - 1, count);
-        if (followingChar.equals(" ")) return stringsAgain(sentence, count - 2);
-        sentence = sentence.substring(0, count).concat("*" + sentence.substring(count));
+        char followingChar = sentence.charAt(count - 1);
+        if (followingChar == ' ') { return stringsAgain(sentence, count - 2); }
+        {
+            sentence = sentence.substring(0, count).concat("*" + sentence.substring(count));
         return stringsAgain(sentence, count - 1);
+        }
     }
 }

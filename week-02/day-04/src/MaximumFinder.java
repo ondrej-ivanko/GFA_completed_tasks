@@ -1,7 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class MaximumFinder {
     public static void main(String[] args) {
         int[] array = {24, 56, 22051, 989, 61, 99, 1850, 415};
