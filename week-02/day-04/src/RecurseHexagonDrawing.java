@@ -1,93 +1,81 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class RecurseHexagonDrawing {
     public static void mainDraw(Graphics graphics) {
-        int x = 0;
-        int y = 0;
-        int x2 = 0;
-        int y2 = 0;
-        int [] xArrayCoordinates = { 80, 0, 80, 240, 320, 240, 80};
-        int [] yArrayCoordinates = {320, 160, 0, 0, 160, 320, 320};
-        int repetition = 5;
-        //drawHexagon(graphics, x, y, x2, y2, repetition);
-        hexagon(graphics, xArrayCoordinates, yArrayCoordinates, repetition);
+        int x = 40;
+        int y = 80;
+        int x2 = 120;
+        int y2 = 160;
+        int [] xArrayCoordinates = {80, 0, 80, 240, 320, 240};
+        int [] yArrayCoordinates = {320, 160, 0, 0, 160, 320};
+        int repetition = 4;
+        hexagon(graphics, xArrayCoordinates, yArrayCoordinates, repetition, x, y, x2, y2);
     }
-
-    /*public static void drawHexagon(Graphics graphics, int xCoord, int yCoord, int x2Coord, int y2Coord, int count) {
-        graphics.drawLine(93, 0, 93 + 185, 0);
-        graphics.drawLine(93 + 185, 0, 320, z);
-        graphics.drawLine(320, z, 93 + 185, 320);
-        graphics.drawLine(93 + 185, 320, y, 320);
-        graphics.drawLine(y, 320, 0, z);
-        graphics.drawLine(0, z, 93, 0);
-    }*/
-/*  hexagon(graphics, new int[] {80, 0 + 40, 80, 240 - 80, 200, 240 - 80, 80}, new int[] {320, 160 + 80, 0 + 160, 0 + 160, 160 + 80, 320, 320}, count - 1);
-    hexagon(graphics, new int[] {80, 0 + 40, 80, 240 - 80, 200, 240 - 80, 80}, new int[] {320 - 160, 160 - 80, 0, 0, 160 - 80, 320 - 160, 320 - 160}, count - 1);
-    hexagon(graphics, new int[] {200, 160, 200, 280, 320, 280, 200}, new int[] {320 - 80, 160, 0 + 80, 0 + 80, 160, 320 - 80, 320 - 80}, count - 1);*/
-
-    public static void hexagon(Graphics graphics, int[] hexagonCoordinatesX, int[] hexagonCoordinatesY, int count) {
+    public static void hexagon(Graphics graphics, int[] hexagonCoordinatesX, int[] hexagonCoordinatesY, int count, int a, int b, int c, int d) {
         if (count > 0) {
         graphics.drawPolygon(hexagonCoordinatesX, hexagonCoordinatesY, 6);
             int[] hexagonOneX = Arrays.copyOf(hexagonCoordinatesX, hexagonCoordinatesX.length);
             for (int i = 0; i < hexagonOneX.length; i++) {
                 if (i == 1) {
-                    hexagonOneX[i] += 40;
+                    hexagonOneX[i] += a;
+                } if (i == 4){
+                    hexagonOneX[i] -= c;
                 } if (i == 3 || i == 5) {
-                    hexagonOneX[i] -= 80;
+                    hexagonOneX[i] -= b;
                 }
             }
-            int[] hexagonOneY = Arrays.copyOf(hexagonCoordinatesX, hexagonCoordinatesX.length);
+            int[] hexagonOneY = Arrays.copyOf(hexagonCoordinatesY, hexagonCoordinatesY.length);
             for (int y = 0; y < hexagonOneY.length; y++) {
                 if (y == 1 || y == 4) {
-                    hexagonOneY[y] += 80;
-                } if (y == 2 || y== 3) {
-                    hexagonOneY[y] += 160;
+                    hexagonOneY[y] += b;
+                } if (y == 2 || y == 3) {
+                    hexagonOneY[y] += d;
                 }
             }
-            hexagon(graphics, hexagonOneX, hexagonOneY, count - 1);
             int[] hexagonTwoX = Arrays.copyOf(hexagonCoordinatesX, hexagonCoordinatesX.length);
             for (int j = 0; j < hexagonTwoX.length; j++) {
                 if (j == 1) {
-                    hexagonTwoX[j] += 40;
+                    hexagonTwoX[j] += a;
                 } if (j == 3 || j == 5) {
-                    hexagonTwoX[j] -= 80;
+                    hexagonTwoX[j] -= b;
+                } if (j == 4){
+                    hexagonTwoX[j] -= c;
                 }
             }
-            int[] hexagonTwoY = Arrays.copyOf(hexagonCoordinatesX, hexagonCoordinatesX.length);
+            int[] hexagonTwoY = Arrays.copyOf(hexagonCoordinatesY, hexagonCoordinatesY.length);
             for (int n = 0; n < hexagonTwoY.length; n++) {
-                if (n == 0 || n == 5 || n == 6) {
-                    hexagonTwoY[n] -= 160;
+                if (n == 0 || n == 5) {
+                    hexagonTwoY[n] -= d;
                 } if (n == 1 || n == 4) {
-                    hexagonTwoY[n] -= 80;
+                    hexagonTwoY[n] -= b;
                 }
             }
-            hexagon(graphics, hexagonTwoX, hexagonTwoY, count - 1);
             int[] hexagonThreeX = Arrays.copyOf(hexagonCoordinatesX, hexagonCoordinatesX.length);
             for (int z = 0; z < hexagonThreeX.length; z++) {
-                if (z == 0 || z == 2 || z == 6) {
-                    hexagonThreeX[z] += 120;
+                if (z == 0 || z == 2) {
+                    hexagonThreeX[z] += c;
                 } if (z == 1) {
-                    hexagonThreeX[z] += 160;
+                    hexagonThreeX[z] += d;
                 } if (z == 3 || z == 5) {
-                    hexagonThreeX[z] += 40;
+                    hexagonThreeX[z] += a;
                 }
             }
-            int[] hexagonThreeY = Arrays.copyOf(hexagonCoordinatesX, hexagonCoordinatesX.length);
+            int[] hexagonThreeY = Arrays.copyOf(hexagonCoordinatesY, hexagonCoordinatesY.length);
             for (int h = 0; h < hexagonThreeY.length; h++) {
-                if (h == 0 || h == 5 || h == 6) {
-                    hexagonThreeY[h] -= 80;
+                if (h == 0 || h == 5) {
+                    hexagonThreeY[h] -= b;
                 } if (h == 2 || h == 3) {
-                    hexagonThreeY[h] += 80;
+                    hexagonThreeY[h] += b;
                 }
             }
-            hexagon(graphics, hexagonThreeX, hexagonThreeY, count - 1);
-
+            hexagon(graphics, hexagonOneX, hexagonOneY, count - 1,  a / 2, b/ 2, c / 2,d / 2);
+            hexagon(graphics, hexagonTwoX, hexagonTwoY, count - 1, a / 2, b/ 2, c / 2,d / 2);
+            hexagon(graphics, hexagonThreeX, hexagonThreeY, count - 1, a / 2, b/ 2, c / 2,d / 2);
         }
     }
 
