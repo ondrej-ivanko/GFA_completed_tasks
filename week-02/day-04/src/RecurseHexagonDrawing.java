@@ -13,7 +13,7 @@ public class RecurseHexagonDrawing {
         int y2 = 160;
         int [] xArrayCoordinates = {80, 0, 80, 240, 320, 240};
         int [] yArrayCoordinates = {320, 160, 0, 0, 160, 320};
-        int repetition = 4;
+        int repetition = 6;
         hexagon(graphics, xArrayCoordinates, yArrayCoordinates, repetition, x, y, x2, y2);
     }
     public static void hexagon(Graphics graphics, int[] hexagonCoordinatesX, int[] hexagonCoordinatesY, int count, int a, int b, int c, int d) {

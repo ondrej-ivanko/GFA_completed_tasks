@@ -1,7 +1,7 @@
 public class Anagram {
         public static void main(String[] args) {
-            String word = "Horse";
-            String word2 = "orHes";
+            String word = "HoEhH";
+            String word2 = "oehhh";
             System.out.println(anagram(word, word2));
         }
         public static boolean anagram(String phrase1, String phrase2) {
@@ -9,12 +9,17 @@ public class Anagram {
             int timesConditionTrue = 0;
             for (int i = 0; i < phrase1.length(); i++) {
                 for (int j = 0; j <phrase2.length(); j++) {
-                    System.out.println(phrase2.substring(j, j+1));
-                    System.out.println(phrase1.substring(i, i+1));
-                    if (phrase2.substring(j).equals(phrase1.substring(i))) timesConditionTrue += 1;
+                    if (phrase1.substring(i, i+1).equalsIgnoreCase(phrase2.substring(j, j+1))) {
+                        phrase2 = phrase2.substring(0, j).concat(phrase2.substring(j+1));
+                        timesConditionTrue += 1;
+                        break;
+                    }
                 }
             }
-            if (timesConditionTrue == phrase1.length()) return true;
-            return false;
+            if (timesConditionTrue == phrase1.length()) {
+                return true;
+            } else {
+                return false;
+            }
         }
 }

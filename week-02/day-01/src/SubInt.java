@@ -12,7 +12,7 @@ public class SubInt {
         System.out.println(subInt(9, new int[] {1, 11, 34, 52, 61}));
         //  should print: '[]'
 
-        // The best I can do with limited options and resources to my disposal.
+        // The best I can do with current options and resources to my disposal.
     }
     public static String subInt(int num, int[] array) {
         int[] newArray = {};
