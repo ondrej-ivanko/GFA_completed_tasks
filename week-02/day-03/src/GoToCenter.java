@@ -13,13 +13,13 @@ public class GoToCenter {
         int x = 15;
         int y = 25;
         for (int i = 0; i <= 2; i++) {
-            DrawF(x, y, graphics);
+            drawF(x, y, graphics);
             x += 54;
             y += 20;
         }
 
     }
-    public static void DrawF(int coordinate1, int coordinate2, Graphics graphics) {
+    public static void drawF(int coordinate1, int coordinate2, Graphics graphics) {
         graphics.drawLine(coordinate1, coordinate2, WIDTH / 2, HEIGHT / 2);
     }
 

@@ -1,6 +1,3 @@
-import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,8 +18,11 @@ public class ProductDatabase2 {
         String over150_List = "";
         for (Map.Entry<String, Integer>entry : database.entrySet()
              ) {
-            if (entry.getValue() < 201) lessThan201_List += entry.getKey() + ", ";
-            if (entry.getValue() > 150) over150_List += entry.getKey() + " : " + entry.getValue() + ", ";
+            if (entry.getValue() < 201) {
+                lessThan201_List += entry.getKey() + ", ";
+            } if (entry.getValue() > 150) {
+                over150_List += entry.getKey() + " : " + entry.getValue() + ", ";
+            }
         }
         System.out.println("Products that costs less than 201: " + lessThan201_List);
         System.out.println("Products that cost more than 150: " + over150_List);

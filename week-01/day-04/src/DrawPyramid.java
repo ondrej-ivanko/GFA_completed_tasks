@@ -6,7 +6,7 @@ public class DrawPyramid {
         int numberOfLines = input.nextInt();
         int maxWidth = numberOfLines * 2;
         int centerOfPyramid = maxWidth / 2;
-
+        // Loop starts adding * from center of every line.
         for (int i = 0; i <= numberOfLines - 1; i++) {
             String line = "";
             for (int j = 0; j <= maxWidth; j++) {

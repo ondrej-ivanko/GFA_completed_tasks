@@ -10,6 +10,7 @@ public class Checkerboard {
         int x = 0;
         int y = 0;
         for (int row = 0; row < WIDTH / 40; row++) {
+            // Loop check for even and odd rows to flip black and white colours.
             if (row % 2 == 0) {
                 for (int column = 0; column < HEIGHT / 40; column++) {
                     if (column % 2 == 0) graphics.setColor(Color.BLACK);
@@ -27,6 +28,7 @@ public class Checkerboard {
                     x += 40;
                     }
             }
+            // Resets and readjusts the coordinates for square builders.
             y += 40;
             x = 0;
         }

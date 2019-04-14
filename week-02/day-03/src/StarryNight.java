@@ -1,7 +1,6 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.Arrays;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -20,9 +19,6 @@ public class StarryNight {
                     (int)(Math.random() * 15));
             graphics.setColor(Color.LIGHT_GRAY);
         }
-
-
-
     }
 
     // Don't touch the code below

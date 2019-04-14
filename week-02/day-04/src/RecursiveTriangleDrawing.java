@@ -14,7 +14,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
             int recursion = 4;
             triangleDraw(graphics, recursion, triangleXCoordinates, triangleYCoordinates, helperVariable, helperTwo);
     }
-
+        // Bug is breaking the recursion, but I cant find it. Does not work from level > 2 of recursion.
         public static void triangleDraw(Graphics graphics, int level, int[] xpoint, int[] ypoint, int helper, int helper2) {
             if (level > 0) {
                 graphics.drawPolygon(xpoint, ypoint, 3);

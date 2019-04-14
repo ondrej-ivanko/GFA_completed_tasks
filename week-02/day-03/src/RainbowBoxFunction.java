@@ -18,7 +18,6 @@ public class RainbowBoxFunction {
 
 
     public static void drawSquare(int size, Color color, Graphics graphics) {
-        /*for (int i = size; i >= size; i--)*/
         graphics.setColor(color);
         int center = size / 2;
         for (int i = 0; i < center; i++) {

@@ -10,8 +10,13 @@ public class BunniesAgain {
     }
 
     public static int earsCount(int bunnies, int earsOdd ,int earsEven) {
-        if (bunnies <= 1) {return earsOdd + earsEven;}
-        if (bunnies % 2 == 0) {return earsEven + earsCount(bunnies - 1, earsOdd, earsEven);}
-        else {return earsOdd + earsCount(bunnies - 1, earsOdd, earsEven);}
+        if (bunnies <= 1) {
+            return earsOdd + earsEven;
+        }
+        if (bunnies % 2 == 0) {
+            return earsEven + earsCount(bunnies - 1, earsOdd, earsEven);
+        } else {
+            return earsOdd + earsCount(bunnies - 1, earsOdd, earsEven);
+        }
     }
 }

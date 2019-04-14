@@ -4,7 +4,7 @@ public class DrawDiagonal {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int number = input.nextInt();
-
+        // Loop is used to construct square line by line. "If" condition is set for only first and last line of square.
         for (int i = 0; i <= number; i++) {
             String line = "";
             if (i == 0 || i == number) {
@@ -12,6 +12,7 @@ public class DrawDiagonal {
                     line += "%";
                 }
                 System.out.println(line);
+            // The loop prints all lines between 0 and last creating diagonal.
             } else {
                 for (int y = 0; y <= number; y++) {
                     if (y == i || y == 0 || y == number) {

@@ -10,7 +10,7 @@ public class RecursiveTreeDraw {
         int level = 6;
         treeDrawer(graphics, 160, 300, angle, 40, level);
     }
-
+    // Code doesnt work. Dont use it.
     public static void treeDrawer(Graphics graphics, int x, int y, int angle, int spread, int repetitions) {
         int x2 = x + (int)(Math.cos(Math.toRadians(angle) * spread));
         int y2 = y + (int)(Math.cos(Math.toRadians(angle) * spread));

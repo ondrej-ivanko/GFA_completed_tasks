@@ -11,13 +11,14 @@ public class ListIntroduction1 {
         names.add("Amanda");
         System.out.println(names.size());
         System.out.println(names.get(2));
+        // First option to print out names in reverse with numbers next to them:
         for (String name : names) {
             System.out.println(name);
         }
         for (int j = 0; j < names.size(); j++) {
             System.out.println((j + 1) + ". " + names.get(j) );
         }
-        //or second possibility:
+        // Second option:
         int idx = 1;
         for (String name : names) {
             System.out.println(idx + ". " + name);
@@ -30,8 +31,4 @@ public class ListIntroduction1 {
         }
         names.clear();
     }
-
-   // public static void () {
-
-    //}
 }

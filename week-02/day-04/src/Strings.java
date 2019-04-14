@@ -3,7 +3,7 @@ public class Strings {
         String inputed = "XsXXxxxyyyioklk hlkf hlk!%0 jdlkfjxYYx";
         System.out.println(stringSwap(inputed, inputed.length() - 1));
     }
-
+    // Function replaces xs for ys.
     public static String stringSwap(String sentence, int count) {
         if (count <= 0) return sentence;
         String character = sentence.substring(count, count + 1);

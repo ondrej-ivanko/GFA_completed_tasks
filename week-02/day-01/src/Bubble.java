@@ -15,7 +15,10 @@ public class Bubble {
 
 
     public static String bubble(int[] array) {
+        // Function compares neighbour values and moves bigger to the right.
         for (int i = 0; i < array.length; i++) {
+            // Second loop is adjusted to not go through the whole array
+            // as biggest number is always already sorted on right side.
             for (int idx = 0; idx < array.length - i - 1; idx++) {
                 if (array[idx] > array[idx + 1]) {
                     int tmp = array[idx];

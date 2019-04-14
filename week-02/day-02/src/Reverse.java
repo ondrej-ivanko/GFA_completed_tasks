@@ -8,7 +8,7 @@ public class Reverse {
 
         System.out.println(reverseF(reversed));
     }
-
+    // Another way to achieve this is to swap first and last characters until center is reached.
     public static String reverseF(String sentence) {
         String reversedString = "";
         for (int i = 0; i < sentence.length(); i++) {

@@ -3,6 +3,7 @@ public class Palindrome {
         String word = "Hell-o";
         System.out.println(palindrome(word));
     }
+    // Function returns reversed string attached to the original string at the end - Palindrome.
     public static String palindrome(String someWord) {
         char[] inputedString = someWord.toCharArray();
         char[] palindromeArray = new char[inputedString.length];

@@ -10,10 +10,10 @@ public class ProductDatabase {
         productPrices.put("Apples", 150);
         productPrices.put("Bread", 50);
         productPrices.put("Chicken", 550);
-        ProductDatabaseBrowser(productPrices, "Fish");
+        productDatabaseBrowser(productPrices, "Fish");
     }
-
-    public static void ProductDatabaseBrowser(HashMap<String, Integer> database, String Item) {
+    // productDatabaseBrowser is returning multiple information stated right below in function declaration.
+    public static void productDatabaseBrowser(HashMap<String, Integer> database, String Item) {
         int priceItem = database.get(Item);
         String mostExpensive = "";
         String cheapest = "";
@@ -25,10 +25,15 @@ public class ProductDatabase {
         for (Map.Entry<String, Integer>entry : database.entrySet()
              ) {
             summedPrices += entry.getValue();
-            if (entry.getValue() > expensiveItem) mostExpensive = entry.getKey(); expensiveItem = entry.getValue();
-            if (entry.getValue() < cheapItem) cheapest = entry.getKey(); cheapItem = entry.getValue();
-            if (entry.getValue() < 300) under300 += 1;
-            if (entry.getValue() == 125) is125 = true;
+            if (entry.getValue() > expensiveItem) {
+                mostExpensive = entry.getKey(); expensiveItem = entry.getValue();
+            } if (entry.getValue() < cheapItem) {
+                cheapest = entry.getKey(); cheapItem = entry.getValue();
+            } if (entry.getValue() < 300) {
+                under300 += 1;
+            } if (entry.getValue() == 125) {
+                is125 = true;
+            }
         }
         int average = summedPrices / 2;
 

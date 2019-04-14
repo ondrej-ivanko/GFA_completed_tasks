@@ -19,6 +19,7 @@ public class RecurseHexagonDrawing {
     public static void hexagon(Graphics graphics, int[] hexagonCoordinatesX, int[] hexagonCoordinatesY, int count, int a, int b, int c, int d) {
         if (count > 0) {
         graphics.drawPolygon(hexagonCoordinatesX, hexagonCoordinatesY, 6);
+        // All the loops below are adjusting coordinates for upcoming recursive hexagons.
             int[] hexagonOneX = Arrays.copyOf(hexagonCoordinatesX, hexagonCoordinatesX.length);
             for (int i = 0; i < hexagonOneX.length; i++) {
                 if (i == 1) {

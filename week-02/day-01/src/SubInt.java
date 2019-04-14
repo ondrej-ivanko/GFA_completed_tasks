@@ -13,6 +13,7 @@ public class SubInt {
         //  should print: '[]'
 
         // The best I can do with current options and resources to my disposal.
+        // This is not bulletproof solution. Numbers higher than 100+ are not meeting the condition.
     }
     public static String subInt(int num, int[] array) {
         int[] newArray = {};

@@ -6,7 +6,7 @@ public class DrawDiamond {
         int numberOfLines = input.nextInt();
         int center = numberOfLines / 2;
         int holder = 1;
-
+        // Loop starts adding * from center of line. Loops creates top half of diamond shape.
         for (int i = 0; i <= numberOfLines; i++) {
             String line = "";
             if (i <= center) {
@@ -17,6 +17,7 @@ public class DrawDiamond {
                         line += "*";
                     }
                 }
+            // Loop in here builds bottom half of diamond adding " " from first and last positions in line.
             } else {
                 for (int j = 0; j <= numberOfLines; j++) {
                     if (numberOfLines % 2 != 0) {
@@ -26,10 +27,10 @@ public class DrawDiamond {
                             line += " ";
                         }
                     /* In code below is the optimization of code in case user inputs even numbers. Even numbers cannot
-                    create perfectly symmetrical diamond. I inserted conditional which extends right bottom side of
-                    the diamond shape, which adds an extra line to given number of lines. It could also be solved by
-                    shortening the diamond in top half, so it does not extend over given amount of lines. Or by mirroring
-                    the bottom half of diamond so it reflects below.
+                    *  create perfectly symmetrical diamond. I inserted conditional which extends right bottom side of
+                    *  the diamond shape, which adds an extra line to given number of lines. It could also be solved by
+                    *  shortening the diamond in top half, so it does not extend over given amount of lines. Or by mirroring
+                    *  the bottom half of diamond so it reflects below.
                      */
                     } else {
                         if (j >= numberOfLines - (numberOfLines - holder) && j <= numberOfLines - holder) {

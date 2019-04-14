@@ -21,6 +21,7 @@ public class ConnectTheDots {
 
     }
     public static void connectDots(int[][] xArray, Graphics graphics) {
+        // Elements from multi-dimensional arrays were fed to new array. Its more comfortable to access for me.
         ArrayList<Integer> coordArray = new ArrayList<>();
         for (int[] array : xArray) {
             for (int element : array

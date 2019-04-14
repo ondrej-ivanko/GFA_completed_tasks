@@ -15,6 +15,7 @@ public class TelephoneBook {
     public static void contactsSearcher(HashMap<String, String> yellowPages, String contactInfo) {
         String name = "";
         String number = "";
+        // Loop is comparing keys and values with string we used as input to search for and returns result respectfully.
         for (Map.Entry<String, String>entry : yellowPages.entrySet()
              ) {
             if (contactInfo == entry.getKey()) {

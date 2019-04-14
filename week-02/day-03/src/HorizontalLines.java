@@ -13,13 +13,13 @@ public class HorizontalLines {
         int x = 0;
         int y = 68;
         for (int i = 0; i <= 2; i++) {
-            DrawFunction(x, y, graphics);
+            drawFunction(x, y, graphics);
             y += 15;
         }
 
     }
 
-    public static void DrawFunction(int xCoord, int yCoord, Graphics graphics) {
+    public static void drawFunction(int xCoord, int yCoord, Graphics graphics) {
         int horizonHolder = 50;
         graphics.drawLine(0, yCoord, xCoord + horizonHolder, yCoord);
     }
