@@ -25,14 +25,11 @@ public class Checkerboard {
                     if (column % 2 == 0) graphics.setColor(Color.WHITE);
                     graphics.fillRect(x, y, WIDTH / 8, HEIGHT / 8);
                     x += 40;
+                    }
             }
-        }
             y += 40;
             x = 0;
         }
-
-
-
     }
 
     // Don't touch the code below

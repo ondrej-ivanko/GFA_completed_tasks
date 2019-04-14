@@ -35,7 +35,9 @@ public class ConnectTheDots {
                 graphics.drawLine(coordArray.get(idx), coordArray.get(idx2), coordArray.get(0), coordArray.get(1));
             } else {
                 graphics.drawLine(coordArray.get(idx), coordArray.get(idx2), coordArray.get(idx + 2), coordArray.get(idx2 + 2));
-                if (i < coordArray.size() / 2 - 1) idx = idx + 2; idx2 = idx2 + 2;
+                if (i < coordArray.size() / 2 - 1) {
+                    idx = idx + 2; idx2 = idx2 + 2;
+                }
             }
         }
 
