@@ -11,7 +11,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
             int[] triangleYCoordinates = {0, 0, 320};
             int helperVariable = 80;
             int helperTwo = 160;
-            int recursion = 4;
+            int recursion = 3;
             triangleDraw(graphics, recursion, triangleXCoordinates, triangleYCoordinates, helperVariable, helperTwo);
     }
         // Bug is breaking the recursion, but I cant find it. Does not work from level > 2 of recursion.
@@ -54,9 +54,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
                 }
                 int[] triangleThreeY = Arrays.copyOf(ypoint, ypoint.length);
                 for (int o = 0; o < triangleThreeY.length; o++) {
-                    if (o == 0) {
-                        triangleThreeY[o] = triangleThreeY[o] + helper2;
-                    } if (o == 1) {
+                    if (o == 0 || o == 1) {
                         triangleThreeY[o] = triangleThreeY[o] + helper2;
                     }
                 }
