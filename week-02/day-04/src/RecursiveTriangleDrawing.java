@@ -11,23 +11,24 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
             int[] triangleYCoordinates = {0, 0, 320};
             int helperVariable = 80;
             int helperTwo = 160;
-            int recursion = 3;
+            int recursion = 5;
             triangleDraw(graphics, recursion, triangleXCoordinates, triangleYCoordinates, helperVariable, helperTwo);
     }
-        // Bug is breaking the recursion, but I cant find it. Does not work from level > 2 of recursion.
         public static void triangleDraw(Graphics graphics, int level, int[] xpoint, int[] ypoint, int helper, int helper2) {
             if (level > 0) {
                 graphics.drawPolygon(xpoint, ypoint, 3);
                 int[] triangleOneX = Arrays.copyOf(xpoint, xpoint.length);
                 for (int i = 0; i < triangleOneX.length; i++) {
-                    if (i == 1 || i == 2) {
-                        triangleOneX[i] = triangleOneX[i] /  2;
+                    if (i == 1) {
+                        triangleOneX[i] = triangleOneX[i] - helper2;
+                    } if (i == 2) {
+                        triangleOneX[i] = triangleOneX[i] - helper;
                     }
                 }
                 int[] triangleOneY = Arrays.copyOf(ypoint, ypoint.length);
                 for (int a = 0; a < triangleOneY.length; a++) {
                     if (a == 2) {
-                        triangleOneY[a] = triangleOneY[a] /  2;
+                        triangleOneY[a] = triangleOneY[a] - helper2;
                     }
                 }
                 int[] triangleTwoX = Arrays.copyOf(xpoint, xpoint.length);
@@ -41,7 +42,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
                 int[] triangleTwoY = Arrays.copyOf(ypoint, ypoint.length);
                 for (int m = 0; m < triangleTwoY.length; m++) {
                     if (m == 2) {
-                        triangleTwoY[m] = triangleTwoY[m] / 2;
+                        triangleTwoY[m] = triangleTwoY[m] - helper2;
                     }
                 }
                 int[] triangleThreeX = Arrays.copyOf(xpoint, xpoint.length);
