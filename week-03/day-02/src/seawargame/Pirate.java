@@ -30,6 +30,7 @@ public class Pirate {
 	}
 	public void die() {
 		this.isAlive = false;
+		System.out.println("One of the pirates died.");
 	}
 
 

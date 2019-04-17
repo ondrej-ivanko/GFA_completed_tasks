@@ -32,7 +32,6 @@ public class TelephoneBook {
         } else {
             searchResult = "The " + contactInfo + " is not in the Telephone book.";
         }
-
         System.out.println(searchResult);
     }
 }

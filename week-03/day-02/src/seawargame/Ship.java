@@ -6,7 +6,7 @@ import java.util.List;
 public class Ship {
 	int aliveMembers = 0;
 	int dead = 0;
-	int shipReadiness;
+	public int shipReadiness;
 
 	List<Pirate> pirateCrew = fillShip();
 
@@ -34,8 +34,9 @@ public class Ship {
 		System.out.println("Amount of dead crew: " + dead);
 		System.out.println("Captain drank " + cptDrankCount() + " bottles of Rum.");
 	}
-	public int shipReadiness(Ship ship) {
-		ship.shipReadiness = (aliveMembers - cptDrankCount());
+
+	public int shipReadiness() {
+		this.shipReadiness = (this.getAliveMembers() - this.cptDrankCount());
 		return this.shipReadiness;
 	}
 
@@ -52,13 +53,13 @@ public class Ship {
 	}
 
 	public boolean battle(Ship ship) {
-		if (this.shipReadiness > shipReadiness(ship)) {
+		if (this.shipReadiness() > ship.shipReadiness()) {
 			int deadCrew = 0;
-			for (int i = 0; i < (int)(1 + Math.random() * ship.getAliveMembers()); i++) {
+			for (int i = 0; i < (int)(1 + Math.random() * ship.getAliveMembers() + 1); i++) {
 				ship.pirateCrew.get(i).die();
 				deadCrew++;
 			}
-			int aliveCrew = ship.aliveMembers - deadCrew;
+			int aliveCrew = ship.getAliveMembers() - deadCrew;
 			ship.setAliveMembers(aliveCrew);
 			ship.setDead(deadCrew);
 			for (int i = 0; i < this.pirateCrew.size() - 1; i++) {
@@ -66,13 +67,14 @@ public class Ship {
 					this.pirateCrew.get(i).drinkSomeRum();
 				}
 			}
+			return true;
 		} else {
 			int deadCrew = 0;
 			for (int i = 0; i < (int)(1 + Math.random() * this.getAliveMembers()); i++) {
 				this.pirateCrew.get(i).die();
 				deadCrew++;
 			}
-			int aliveCrew = this.aliveMembers - deadCrew;
+			int aliveCrew = this.getAliveMembers() - deadCrew;
 			this.setAliveMembers(aliveCrew);
 			this.setDead(deadCrew);
 			for (int i = 0; i < ship.pirateCrew.size() - 1; i++) {

@@ -18,17 +18,17 @@ public class Armada {
 	public boolean war(Armada opposingArmada) {
 		System.out.println(this.armada.size());
 		System.out.println(opposingArmada.armada.size());
-		while (this.armada.isEmpty() != true || opposingArmada.armada.isEmpty() != true) {
+		while (this.armada.isEmpty() != true && opposingArmada.armada.isEmpty() != true) {
 			if (this.armada.get(0).battle(opposingArmada.armada.get(0))) {
 				opposingArmada.armada.remove(0);
 			} else {
 				this.armada.remove(0);
 			}
 		} if (this.armada.isEmpty()) {
-			return true;
+			return false;
 		} else {
 			opposingArmada.armada.isEmpty();
 		}
-		return false;
+		return true;
 	}
 }
