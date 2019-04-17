@@ -1,5 +1,12 @@
 package teachersandstudents;
 
-public class TeacherStudent {
-	
+public class Teacher {
+	public void teach(Student student) {
+
+	}
+
+	public void answer() {
+
+	}
+
 }

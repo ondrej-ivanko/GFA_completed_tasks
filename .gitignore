@@ -30,5 +30,6 @@ hs_err_pid*
 .idea
 out/
 *.iml
+*.txt
 
 # End of https://www.gitignore.io/api/java

@@ -6,7 +6,7 @@ import java.util.*;
 public class Logs {
 	public static void main(String[] args) {
 		Path filename = Paths.get("log.txt");
-		extractIps(filename);
+		System.out.println(extractIps(filename));
 	}
 
 	public static ArrayList<String> extractIps(Path filename) {
@@ -17,14 +17,13 @@ public class Logs {
 			System.out.println("Problem.");
 		}
 		ArrayList<String[]> split = new ArrayList<>();
-		for (int i = 0; i < 500; i++) {
+		for (int i = 0; i < logs.size(); i++) {
 			logs.set(i, logs.get(i).replace("   ", " ").replace("  ", " "));
 			split.add(logs.get(i).split(" "));
 		}
 		ArrayList<String> ipAdressess = new ArrayList<>();
 		for (String[] element : split) {
 			ipAdressess.add(element[5]);
-			System.out.println(element[5]);
 		}
 		return ipAdressess;
 	}
