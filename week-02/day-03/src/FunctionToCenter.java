@@ -10,23 +10,22 @@ public class FunctionToCenter {
         // The x and y coordinates of the line's starting point and the graphics
         // and draws a line from that point to the center of the canvas.
         // Fill the canvas with lines from the edges, every 20 px, to the center.
-        int linesDistance = 16;
+        int linesDistance = 20;
         int incrementOfCoordinates = HEIGHT / linesDistance;
         int x = 0;
         int y = 0;
         // Loop works to print lines and adjust to new coordinates.
-        for (int i = 0; i < 4 * incrementOfCoordinates - 1; i++) {
+        for (int i = 0; i < 4 * incrementOfCoordinates; i++) {
             writeLine(x, y, graphics);
             if (i < incrementOfCoordinates) {
-                y += incrementOfCoordinates;
+                y += linesDistance;
             } else if (i < incrementOfCoordinates * 2) {
-                x += incrementOfCoordinates;
+                x += linesDistance;
             } else if (i < incrementOfCoordinates * 3) {
-                y -= incrementOfCoordinates;
+                y -= linesDistance;
             } else if (i < incrementOfCoordinates * 4) {
-                x -= incrementOfCoordinates;
+                x -= linesDistance;
             }
-
         }
     }
 
