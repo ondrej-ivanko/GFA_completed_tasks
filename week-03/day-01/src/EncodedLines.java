@@ -24,11 +24,17 @@ public class EncodedLines {
 		String holderString = "";
 		List<String> decryptedFile = new ArrayList<>();
 		for (String line : file) {
+			// Looping though each line and each character, which are turned to arrays just for the sake of loop.
 			for (int i = 0; i < line.toCharArray().length; i++) {
 				char letter = line.charAt(i);
+				// This eliminates the change of " " to different ASCII character and just adds it.
 				if (letter == ' ') {
 					holderString += " ";
 				} else {
+					// I had the figure out how to decode the elements and found out their ASCII value is shifted.
+					// So here the current char is turned to ASCII value and I created appropriate following and preceding
+					// ASCII character. Than I´m must replacing the current char with the following or preceding char
+					// according the ASCII value.
 					  int ascii = (int) letter;
 					  char nextAscii = (char) (ascii + 1);
 					  char previousAscii = (char) (ascii - 1);
@@ -39,6 +45,7 @@ public class EncodedLines {
 					  }
 				}
 			}
+			// First decrypted line is added to my list and than the helper string is reset for new iteration.
 			decryptedFile.add(holderString);
 			holderString = "";
 		}

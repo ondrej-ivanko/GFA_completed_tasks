@@ -17,6 +17,8 @@ public class ReversedOrder {
 	public static void reversedOrder(Path filename) {
 		try {
 			List<String> originalText = Files.readAllLines(filename);
+			// I´m adding the "line before the last line" to the end and removing the already added line.
+			// Also the iteration condition has to be lower by 2, so I start from the "line before the last line".
 			for (int line = originalText.size() - 2; line >= 0; line--) {
 				List<String> reversedList = Files.readAllLines(filename);
 				String lineToRemove = originalText.get(line);
