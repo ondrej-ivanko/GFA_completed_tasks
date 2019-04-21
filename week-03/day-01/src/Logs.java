@@ -23,6 +23,7 @@ public class Logs {
 		}
 		ArrayList<String> ipAdressess = new ArrayList<>();
 		for (String[] element : split) {
+			if (!ipAdressess.contains(element))
 			ipAdressess.add(element[5]);
 		}
 		return ipAdressess;
