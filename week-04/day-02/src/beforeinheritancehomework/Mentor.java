@@ -1,10 +1,7 @@
 package beforeinheritancehomework;
 
-public class Mentor {
+public class Mentor extends Person {
 
-	String name;
-	int age;
-	String gender;
 	String level;
 
 	public Mentor() {
@@ -12,9 +9,7 @@ public class Mentor {
 	}
 
 	public Mentor(String name, int age, String gender, String level) {
-		this.name = name;
-		this.age = age;
-		this.gender = gender;
+		super(name, age, gender);
 		this.level = level;
 	}
 

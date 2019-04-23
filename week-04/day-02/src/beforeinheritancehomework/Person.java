@@ -2,9 +2,9 @@ package beforeinheritancehomework;
 
 public class Person {
 
-	String name;
-	int age;
-	String gender;
+	String name = "Jane Doe";
+	int age = 30;
+	String gender = "female";
 
 	public Person(String name, int age, String gender) {
 		this.name = name;
@@ -13,7 +13,6 @@ public class Person {
 	}
 
 	public Person() {
-		this("Jane Doe", 30, "female");
 	}
 
 	public void introduce() {

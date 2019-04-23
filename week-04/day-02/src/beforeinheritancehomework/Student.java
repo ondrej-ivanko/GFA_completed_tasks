@@ -1,10 +1,7 @@
 package beforeinheritancehomework;
 
-public class Student {
+public class Student extends Person {
 
-	String name;
-	int age;
-	String gender;
 	String previousOrganization;
 	int skippedDays;
 
@@ -13,9 +10,7 @@ public class Student {
 	}
 
 	public Student(String name, int age, String gender, String previousOrganization) {
-		this.name = name;
-		this.age = age;
-		this.gender = gender;
+		super(name, age, gender);
 		this.previousOrganization = previousOrganization;
 		this.skippedDays = 0;
 	}
