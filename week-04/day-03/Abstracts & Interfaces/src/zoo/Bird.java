@@ -1,6 +1,6 @@
 package zoo;
 
-import Flyable.Flyable;
+import flyable.Flyable;
 
 public class Bird extends Animal implements Flyable {
 

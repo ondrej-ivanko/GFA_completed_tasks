@@ -18,6 +18,9 @@ public class Dominoes {
 		}
 		Collections.sort(dominoes);
 		System.out.println(dominoes);
+		for (Domino domino : dominoes) {
+			domino.printAllFields();
+		}
 	}
 
 	static List<Domino> initializeDominoes() {

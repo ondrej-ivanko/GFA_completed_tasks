@@ -1,4 +1,4 @@
-package Flyable;
+package flyable;
 
 public class Vehicle {
 
