@@ -1,7 +1,7 @@
 package dominoes;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.text.CollationElementIterator;
+import java.util.*;
 
 public class Dominoes {
 	public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class Dominoes {
 				dominoes.add(temp);
 			}
 		}
-
+		Collections.sort(dominoes);
 		System.out.println(dominoes);
 	}
 

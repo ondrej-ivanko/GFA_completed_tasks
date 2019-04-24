@@ -1,6 +1,8 @@
 package dominoes;
 
-public class Domino implements Comparable {
+import java.lang.Comparable;
+
+public class Domino implements Comparable<Domino> {
 	private final int left;
 	private final int right;
 
@@ -23,7 +25,14 @@ public class Domino implements Comparable {
 	}
 
 	@Override
-	public void compareTo(Domino domino) {
-
+	public int compareTo(Domino domino) {
+		if (this.getLeftSide() == domino.getLeftSide()) {
+		 return 0;
+		} else if (this.getLeftSide() < domino.getLeftSide()) {
+			return -1;
+		} else {
+			return 1;
+		}
 	}
 }
+
