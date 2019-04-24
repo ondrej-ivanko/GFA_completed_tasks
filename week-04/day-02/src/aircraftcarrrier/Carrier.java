@@ -19,7 +19,7 @@ public class Carrier {
 	}
 
 	public void setAmmoStorageSize(int ammoDrained) {
-		this.ammoStorageSize = ammoDrained;
+		this.ammoStorageSize -= ammoDrained;
 	}
 
 	public int getHealthPoints() {
@@ -27,19 +27,11 @@ public class Carrier {
 	}
 
 	public void setHealthPoints(int healthPoints) {
-		this.healthPoints = healthPoints;
+		this.healthPoints -= healthPoints;
 	}
 
 	public void add(Aircraft aircraft) {
 		unitsInHangar.add(aircraft);
-	}
-
-	public int fire() {
-		int fireCapacity = 0;
-		for (Aircraft fighter : unitsInHangar) {
-			fireCapacity += fighter.getBaseDamage();
-		}
-		return fireCapacity;
 	}
 
 	public int wholeFleetFuelCapacity() {
@@ -50,33 +42,62 @@ public class Carrier {
 		return fuelCapacity;
 	}
 
-	public void fill() {
-		try {
-			if (this.ammoStorageSize == 0);
-		} catch (Exception outOfAmmo) {
-			System.out.println("Carrier ran out of ammo.");
+	public boolean hasAmmo() {
+		if (this.getAmmoStorageSize() != 0) {
+			return true;
 		}
-		if (getAmmoStorageSize() < wholeFleetFuelCapacity()) {
-			while (getAmmoStorageSize() > 0) {
-				for (Aircraft fighter : unitsInHangar) {
-					if (fighter.isPriority()) {
-						setAmmoStorageSize(fighter.refill(getAmmoStorageSize()));
-					}
-				}
-			}
-		} else {
-			for (Aircraft fighter : unitsInHangar) {
-				setAmmoStorageSize(fighter.refill(getAmmoStorageSize()));
+		return false;
+	}
+
+	public boolean lessAmmoThanCapacity() {
+		if (this.getAmmoStorageSize() < this.wholeFleetFuelCapacity()) {
+			return true;
+		}
+		return false;
+	}
+
+	public void fillByPriority() {
+		for (Aircraft fighter : this.unitsInHangar) {
+			if (fighter.isPriority()) {
+				fighter.refill(this.getAmmoStorageSize());
+				setAmmoStorageSize(fighter.getAmmo());
 			}
 		}
 	}
+
+	public void fillAllPlanes() {
+		for (Aircraft fighter : unitsInHangar) {
+			fighter.refill(this.getAmmoStorageSize());
+			setAmmoStorageSize(fighter.getAmmo());
+		}
+	}
+
+
+
+	public void fill() {
+		try {
+			hasAmmo();
+		} catch (Exception outOfAmmo) {
+			System.out.println("Carrier ran out of ammo.");
+		}
+		 if (lessAmmoThanCapacity()) {
+			while (getAmmoStorageSize() > 0) {
+				fillByPriority();
+					}
+			 System.out.println("No more ammo in storage.");
+		 } else {
+				fillAllPlanes();
+		 }
+	}
+
 
 	public void getStatus() {
 		if (this.getHealthPoints() <= 0) {
 			System.out.println("It´s dead Jim.");
 		} else {
 		System.out.println("HP: " + this.getHealthPoints() + ", Aircraft count: " + this.unitsInHangar.size()
-						                   + ", Ammo Storage: " + this.getAmmoStorageSize() + ", Total damage: " + this.fire());
+						                   + ", Ammo Storage: " + this.getAmmoStorageSize() + ", Total damage: "
+						                   + this.aircraftsAttack());
 		System.out.println("Aircrafts:");
 		for (Aircraft fighter : unitsInHangar) {
 			fighter.getStatus();
@@ -84,14 +105,18 @@ public class Carrier {
 		}
 	}
 
+	public int aircraftsAttack() {
+		int fleetDamage = 0;
+		for (Aircraft fighter : this.unitsInHangar) {
+			fleetDamage += fighter.fight();
+		}
+		return fleetDamage;
+	}
+
 	public void fight(Carrier oppossingCarrier) {
 		if (this.getHealthPoints() != 0 && oppossingCarrier.getHealthPoints() != 0) {
-			oppossingCarrier.setHealthPoints(oppossingCarrier.getHealthPoints() - fire());
-			this.fill();
-			this.setHealthPoints(this.getHealthPoints() - oppossingCarrier.fire());
-			oppossingCarrier.fill();
+			oppossingCarrier.setHealthPoints(this.aircraftsAttack());
 			this.getStatus();
-			oppossingCarrier.getStatus();
 		}
 	}
 }

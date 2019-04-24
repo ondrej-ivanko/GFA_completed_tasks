@@ -15,8 +15,8 @@ public class Aircraft {
 		this.hasPriority = hasPriority;
 	}
 
-	public void setAmmo(int ammoLost) {
-		this.ammo = ammoLost;
+	public void setAmmo(int ammoGained) {
+		this.ammo = ammoGained;
 	}
 
 	public int getAmmo() {
@@ -35,8 +35,8 @@ public class Aircraft {
 	}
 
 	public int fight() {
-		setAmmo(0);
 		int damageDealt = getAmmo() * getBaseDamage();
+		setAmmo(0);
 		return damageDealt;
 	}
 

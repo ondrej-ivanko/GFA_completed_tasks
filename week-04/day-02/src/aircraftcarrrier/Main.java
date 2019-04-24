@@ -15,8 +15,8 @@ public class Main {
 		Aircraft fighter9 = new F16();
 		Aircraft fighter10 = new F16();
 
-		Carrier yamamotoBattlecruiser = new Carrier(250, 600);
-		Carrier ussFranklin = new Carrier(200, 600);
+		Carrier yamamotoBattlecruiser = new Carrier(250, 4500);
+		Carrier ussFranklin = new Carrier(200, 6000);
 
 		yamamotoBattlecruiser.add(fighter1);
 		yamamotoBattlecruiser.add(fighter2);
@@ -34,8 +34,10 @@ public class Main {
 		yamamotoBattlecruiser.fill();
 		ussFranklin.fill();
 
-		/*yamamotoBattlecruiser.getStatus();
-		ussFranklin.getStatus();*/
 		yamamotoBattlecruiser.fight(ussFranklin);
+
+		yamamotoBattlecruiser.fill();
+
+		yamamotoBattlecruiser.getStatus();
 	}
 }
