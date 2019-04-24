@@ -1,6 +1,8 @@
 package zoo;
 
-public class Bird extends Animal{
+import Flyable.Flyable;
+
+public class Bird extends Animal implements Flyable {
 
 	String name;
 
@@ -20,5 +22,20 @@ public class Bird extends Animal{
 	@Override
 	public void eat() {
 		System.out.println(this.name + " eats insects and smaller animals.");
+	}
+
+	@Override
+	public void land() {
+
+	}
+
+	@Override
+	public void takeoff() {
+
+	}
+
+	@Override
+	public void fly() {
+
 	}
 }
