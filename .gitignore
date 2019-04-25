@@ -31,5 +31,11 @@ hs_err_pid*
 out/
 *.iml
 *.txt
+*.property
+*.lock
+*.gradle
+*.css
+*.html
+*.bat
 
 # End of https://www.gitignore.io/api/java
