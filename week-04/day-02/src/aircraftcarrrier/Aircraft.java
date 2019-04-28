@@ -15,8 +15,8 @@ public class Aircraft {
 		this.hasPriority = hasPriority;
 	}
 
-	public void setAmmo(int ammoGained) {
-		this.ammo = ammoGained;
+	public void setAmmo(int aircraftAmmo) {
+		this.ammo = aircraftAmmo;
 	}
 
 	public int getAmmo() {
@@ -30,8 +30,13 @@ public class Aircraft {
 	public int getBaseDamage() {
 		return baseDamage;
 	}
+
 	public String getType() {
 		return type;
+	}
+
+	public int addAmmo(int ammoGained) {
+		return this.ammo += ammoGained;
 	}
 
 	public int fight() {
@@ -51,7 +56,7 @@ public class Aircraft {
 
 	public void getStatus() {
 		System.out.println("Type " + getType() + ", Ammo: " + getAmmo() + ", Base Damage: "
-						                   + getBaseDamage() + ", All Damage: " + getBaseDamage() * getMaxAmmo());
+						                   + getBaseDamage() + ", All Damage: " + getBaseDamage() * getAmmo());
 	}
 
 	public boolean isPriority() {

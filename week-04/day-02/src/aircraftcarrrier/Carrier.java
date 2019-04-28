@@ -19,7 +19,7 @@ public class Carrier {
 	}
 
 	public void setAmmoStorageSize(int ammoDrained) {
-		this.ammoStorageSize -= ammoDrained;
+		this.ammoStorageSize = ammoDrained;
 	}
 
 	public int getHealthPoints() {
@@ -60,7 +60,7 @@ public class Carrier {
 		for (Aircraft fighter : this.unitsInHangar) {
 			if (fighter.isPriority()) {
 				fighter.refill(this.getAmmoStorageSize());
-				setAmmoStorageSize(fighter.getAmmo());
+				setAmmoStorageSize(fighter.refill(this.getAmmoStorageSize()));
 			}
 		}
 	}
@@ -68,7 +68,7 @@ public class Carrier {
 	public void fillAllPlanes() {
 		for (Aircraft fighter : unitsInHangar) {
 			fighter.refill(this.getAmmoStorageSize());
-			setAmmoStorageSize(fighter.getAmmo());
+			setAmmoStorageSize(fighter.refill(this.getAmmoStorageSize()));
 		}
 	}
 
@@ -97,7 +97,7 @@ public class Carrier {
 		} else {
 		System.out.println("HP: " + this.getHealthPoints() + ", Aircraft count: " + this.unitsInHangar.size()
 						                   + ", Ammo Storage: " + this.getAmmoStorageSize() + ", Total damage: "
-						                   + this.aircraftsAttack());
+						                   + this.fleetFirepower());
 		System.out.println("Aircrafts:");
 		for (Aircraft fighter : unitsInHangar) {
 			fighter.getStatus();
@@ -105,7 +105,7 @@ public class Carrier {
 		}
 	}
 
-	public int aircraftsAttack() {
+	public int aircraftAttack() {
 		int fleetDamage = 0;
 		for (Aircraft fighter : this.unitsInHangar) {
 			fleetDamage += fighter.fight();
@@ -115,8 +115,16 @@ public class Carrier {
 
 	public void fight(Carrier oppossingCarrier) {
 		if (this.getHealthPoints() != 0 && oppossingCarrier.getHealthPoints() != 0) {
-			oppossingCarrier.setHealthPoints(this.aircraftsAttack());
+			oppossingCarrier.setHealthPoints(this.aircraftAttack());
 			this.getStatus();
 		}
+	}
+
+	public int fleetFirepower() {
+		int fleetPower = 0;
+		for (Aircraft fighter : this.unitsInHangar) {
+			fleetPower += fighter.getBaseDamage() * fighter.getAmmo();
+		}
+		return fleetPower;
 	}
 }

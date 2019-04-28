@@ -34,10 +34,48 @@ public class Main {
 		yamamotoBattlecruiser.fill();
 		ussFranklin.fill();
 
+		System.out.println("1 ==========================");
+
 		yamamotoBattlecruiser.fight(ussFranklin);
 
 		yamamotoBattlecruiser.fill();
 
 		yamamotoBattlecruiser.getStatus();
+
+		System.out.println("2 ==========================");
+
+		ussFranklin.fight(yamamotoBattlecruiser);
+
+		ussFranklin.fill();
+
+		ussFranklin.getStatus();
+
+		System.out.println("3 ==========================");
+
+		yamamotoBattlecruiser.fight(ussFranklin);
+
+		yamamotoBattlecruiser.fill();
+
+		yamamotoBattlecruiser.getStatus();
+
+		System.out.println("4 ==========================");
+
+		ussFranklin.fight(yamamotoBattlecruiser);
+
+		ussFranklin.fill();
+
+		ussFranklin.getStatus();
+
+		System.out.println("5 ==========================");
+
+		yamamotoBattlecruiser.fight(ussFranklin);
+
+		yamamotoBattlecruiser.fill();
+
+		yamamotoBattlecruiser.getStatus();
+
+		System.out.println("6 ==========================");
+
+		ussFranklin.fight(yamamotoBattlecruiser);
 	}
 }
