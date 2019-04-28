@@ -67,4 +67,7 @@ public class ExtensionTest {
 	public void testTranslate_lagopus() {
 		assertEquals("lavagovopuvus", extension.translate("lagopus"));
 	}
+
 }
+
+

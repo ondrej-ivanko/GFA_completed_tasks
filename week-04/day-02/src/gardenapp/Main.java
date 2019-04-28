@@ -2,24 +2,22 @@ package gardenapp;
 
 public class Main {
 	public static void main(String[] args) {
-		Flower yellow = new Flower("yellow", 15);
-		Flower blue = new Flower("blue", 2);
+		Plants yellow = new Flower("yellow", 1);
+		Plants blue = new Flower("blue", 2);
 
-		Tree purple = new Tree("purple", 7);
-		Tree orange = new Tree("orange", 25);
+		Plants purple = new Tree("purple", 7);
+		Plants orange = new Tree("orange", 3);
 
 		Garden beautifulGarden = new Garden();
 
-		beautifulGarden.addFlower(yellow);
-		beautifulGarden.addFlower(blue);
-		beautifulGarden.addTree(purple);
-		beautifulGarden.addTree(orange);
+		beautifulGarden.addPlant(yellow);
+		beautifulGarden.addPlant(blue);
+		beautifulGarden.addPlant(purple);
+		beautifulGarden.addPlant(orange);
 
 		beautifulGarden.showGarden();
 
 		beautifulGarden.waterAll(40);
 		beautifulGarden.waterAll(70);
-
-
 	}
 }

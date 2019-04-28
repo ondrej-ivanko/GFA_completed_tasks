@@ -5,40 +5,38 @@ import java.util.List;
 
 public class Garden {
 
-	List<Flower> allFlowers = new ArrayList<>();
-	List<Tree> allTrees = new ArrayList<>();
+	List<Plants> allPlants = new ArrayList<>();
 
-	public void addFlower(Flower flower) {
-		allFlowers.add(flower);
-	}
-
-	public void addTree(Tree tree) {
-		allTrees.add(tree);
+	public void addPlant(Plants plant) {
+		allPlants.add(plant);
 	}
 
 	public void showGarden() {
-		for (Flower flower: allFlowers) {
-			flower.getStatus();
-		}
-		for (Tree tree : allTrees) {
-			tree.getStatus();
+		for (Plants plant : allPlants) {
+			plant.getStatus();
 		}
 	}
 
-	public int flowersAndTreesCount() {
-		return allTrees.size() + allFlowers.size();
+	public int plantsThatNeedsWatering() {
+		int needsWatering = 0;
+		for (Plants plant : allPlants) {
+			if (plant.needsWater()) {
+				needsWatering++;
+			}
+		}
+		return needsWatering;
 	}
 
 	public void waterAll(int waterToUse) {
 		System.out.println("Watering with " + waterToUse);
-		int waterPerPlant = waterToUse / flowersAndTreesCount();
-		for (Flower flower: allFlowers) {
-			flower.setWaterAmount(waterPerPlant * flower.waterAbsorption);
-		}
-		for (Tree tree : allTrees) {
-			tree.setWaterAmount(waterPerPlant * tree.getWaterAbsorption());
+		if (plantsThatNeedsWatering() > 0) {
+			int waterPerPlant = waterToUse / plantsThatNeedsWatering();
+			for (Plants plant: allPlants) {
+				if (plant.needsWater()) {
+					plant.setWaterAmount(waterPerPlant * plant.getWaterAbsorption());
+				}
+			}
 		}
 		showGarden();
 	}
-
 }

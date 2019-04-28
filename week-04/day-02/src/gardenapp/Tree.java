@@ -1,33 +1,19 @@
 package gardenapp;
 
-public class Tree {
+public class Tree extends Plants {
 
-	String treeType;
-	double waterAmount;
-	double waterAbsorption = 0.4;
-
-	public Tree(String type, int amount) {
-		this.treeType = type;
-		this.waterAmount = amount;
+	public Tree(String type, double amount) {
+		super.type = type;
+		super.waterAmount = amount;
+		super.waterAbsorption = 0.4;
 	}
 
-	public void setWaterAmount(double waterAmount) {
-		this.waterAmount += waterAmount;
-	}
-
-	public String getTreeType() {
-		return treeType;
-	}
-
-	public double getWaterAbsorption() {
-		return waterAbsorption;
-	}
-
+	@Override
 	public void getStatus() {
-		if (this.waterAmount < 10) {
-			System.out.println("The " + getTreeType() + " Tree needs water.");
+		if (this.getWaterAmount() < 10) {
+			System.out.println("The " + getType() + " Tree needs water.");
 		} else {
-			System.out.println("The " + getTreeType() + " Tree does not need water.");
+			System.out.println("The " + getType() + " Tree does not need water.");
 		}
 	}
 }
