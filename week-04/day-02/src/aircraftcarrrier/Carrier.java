@@ -97,7 +97,7 @@ public class Carrier {
 		} else {
 		System.out.println("HP: " + this.getHealthPoints() + ", Aircraft count: " + this.unitsInHangar.size()
 						                   + ", Ammo Storage: " + this.getAmmoStorageSize() + ", Total damage: "
-						                   + this.fleetFirepower());
+						                   + this.actualFleetFirepower());
 		System.out.println("Aircrafts:");
 		for (Aircraft fighter : unitsInHangar) {
 			fighter.getStatus();
@@ -120,7 +120,7 @@ public class Carrier {
 		}
 	}
 
-	public int fleetFirepower() {
+	public int actualFleetFirepower() {
 		int fleetPower = 0;
 		for (Aircraft fighter : this.unitsInHangar) {
 			fleetPower += fighter.getBaseDamage() * fighter.getAmmo();
