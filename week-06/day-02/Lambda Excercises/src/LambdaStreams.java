@@ -1,7 +1,11 @@
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 
 import static java.util.stream.Collectors.*;
 
@@ -15,7 +19,8 @@ public class LambdaStreams {
 			"AMSTERDAM", "ABU DHABI", "PARIS");
 	static String word = "UhlIOnd";
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
+		Path file = Paths.get("wikipage.rtf");
 
 		// Every even number
 		numbers.stream()
@@ -98,11 +103,23 @@ public class LambdaStreams {
 		Map<String, Long> foxesByColour = container.stream()
 					.map(fox -> fox.getColor())
 				    .collect(Collectors.groupingBy(fox -> fox, Collectors.counting()));
-		
+
 		System.out.println(foxesByColour);
 
+		List<String> fullText = new ArrayList<>();
+		try {
+			fullText = Files.readAllLines(Paths.get("wikipage.rtf"));
+		} catch (IOException ex) {
+			System.out.println("File missing.");
+		}
+		String[] splittedText = fullText.stream()
+
+
+	/*Map<String, Long> occurrence = streamlinedText.stream()
+			.collect(toMap(word -> word, Collectors.counting()));*/
 
 
 	}
+
 
 }
