@@ -34,8 +34,8 @@ public class ServiceApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		color.printColor();
-		color2.printColor();
-		/*color3.printColor();
+		/*color2.printColor();
+		color3.printColor();
 		color4.printColor();*/
 	}
 }
