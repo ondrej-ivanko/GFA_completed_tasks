@@ -11,6 +11,9 @@ import java.util.stream.Collectors;
 public class SavedFoxes {
 
 	private List<Fox> allFoxes;
+	List<String> tricks = new ArrayList<>(Arrays.asList("fencing", "flying", "sprinting"));
+
+	private Fox currentFox = null;
 
 	public SavedFoxes() {
 		this.allFoxes = new ArrayList<>();
@@ -18,8 +21,24 @@ public class SavedFoxes {
 		allFoxes.add(new Fox("Ray", "apples", "beer"));
 	}
 
+	public Fox getCurrentFox() {
+		return currentFox;
+	}
+
+	public void setCurrentFox(Fox currentFox) {
+		this.currentFox = currentFox;
+	}
+
 	public List<Fox> getAllFoxes() {
 		return allFoxes;
+	}
+
+	public List<String> getTricks() {
+		return tricks;
+	}
+
+	public void setTricks(List<String> tricks) {
+		this.tricks = tricks;
 	}
 
 	public boolean isInList(String name) {

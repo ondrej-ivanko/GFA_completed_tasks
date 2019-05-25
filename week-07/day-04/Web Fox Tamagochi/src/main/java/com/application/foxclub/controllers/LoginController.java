@@ -18,6 +18,7 @@ public class LoginController {
 
 	@PostMapping(value = "/login")
 	public String submitForm(@RequestParam String name) {
-		return "redirect:/fox/index/?name=" + name;
+		foxes.setCurrentFox(foxes.findFox(name));
+		return "redirect:/index/?name=" + name;
 	}
 }

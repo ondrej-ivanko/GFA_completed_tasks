@@ -57,4 +57,6 @@ public class Fox {
 	public int amountOfTricks() {
 		return getTricks().size();
 	}
+
+
 }

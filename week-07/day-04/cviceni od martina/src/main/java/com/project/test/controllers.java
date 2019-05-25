@@ -21,7 +21,8 @@ public class controllers {
 	}
 
 	@RequestMapping(value = "/Welcome", method = RequestMethod.POST)
-	public String welcomeUser(Model model, @RequestParam String addressing, String name, String surname) {
+	public String welcomeUser(Model model, @RequestParam String addressing,
+	                          @RequestParam String name, @RequestParam String surname) {
 		model.addAttribute("addresing", addressing);
 		model.addAttribute("name", name);
 		model.addAttribute("surname", surname);
