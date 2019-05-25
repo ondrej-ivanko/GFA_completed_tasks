@@ -1,4 +1,4 @@
-package com.application.fox.models;
+package com.application.foxclub.models;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,22 +6,17 @@ import java.util.List;
 
 public class Fox {
 
-	private SavedFoxes foxes;
-
 	private String name;
 	private List<String> tricks;
-	private int food;
-	private int drink;
+	private String food;
+	private String drink;
 
 	public Fox(String name) {
 		this.name = name;
 		this.tricks = new ArrayList<>();
-		this.food = 0;
-		this.drink = 0;
-		foxes = new SavedFoxes();
 	}
 
-	public Fox(String name, int food, int drink) {
+	public Fox(String name, String food, String drink) {
 		this.name = name;
 		this.tricks = new ArrayList<>(Arrays.asList("Fence jumping", "Roller-skatting", "Chasing tails"));
 		this.food = food;
@@ -44,24 +39,19 @@ public class Fox {
 		this.tricks = tricks;
 	}
 
-	public int getFood() {
+	public String getFood() {
 		return food;
 	}
-
-	public void setFood(int food) {
+	public void setFood(String food) {
 		this.food = food;
 	}
 
-	public int getDrink() {
+	public String getDrink() {
 		return drink;
 	}
 
-	public void setDrink(int drink) {
+	public void setDrink(String drink) {
 		this.drink = drink;
-	}
-
-	public void addFox(Fox fox) {
-		foxes.getAllFoxes().add(fox);
 	}
 
 	public int amountOfTricks() {
