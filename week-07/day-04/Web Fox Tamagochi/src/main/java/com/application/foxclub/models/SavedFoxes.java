@@ -10,15 +10,13 @@ import java.util.stream.Collectors;
 @Service
 public class SavedFoxes {
 
-	private List<Fox> allFoxes;
-	List<String> tricks = new ArrayList<>(Arrays.asList("fencing", "flying", "sprinting"));
+	private List<Fox> allFoxes = new ArrayList<>(Arrays.asList(new Fox("Donna", "chicken", "water"),
+			new Fox("Ray", "apples", "beer")));
+	private List<String> tricks = new ArrayList<>(Arrays.asList("fencing", "flying", "sprinting"));
 
 	private Fox currentFox = null;
 
 	public SavedFoxes() {
-		this.allFoxes = new ArrayList<>();
-		allFoxes.add(new Fox("Donna", "chicken", "water"));
-		allFoxes.add(new Fox("Ray", "apples", "beer"));
 	}
 
 	public Fox getCurrentFox() {

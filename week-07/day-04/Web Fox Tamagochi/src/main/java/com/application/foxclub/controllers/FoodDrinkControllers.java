@@ -29,15 +29,17 @@ public class FoodDrinkControllers {
 	}
 
 	@PostMapping(value = "/nutritionStore")
-	public String changeFoodOrDrink(@RequestParam (required = false) String food,
-	                              @RequestParam (required = false) String drink,
+	public String changeFoodOrDrink(@RequestParam String food,
+	                              @RequestParam String drink,
 	                              @PathParam("name") String name, Model model) {
-		model.addAttribute("name", name);
 		if (food != null) {
 			foxes.getCurrentFox().setFood(food);
 		} if (drink != null) {
 			foxes.getCurrentFox().setDrink(drink);
 		}
-		return "redirect:/index/?name=" + name;
+		model.addAttribute("name", name);
+		model.addAttribute("food", foxes.findFox(name));
+		model.addAttribute("drink", foxes.findFox(name));
+		return "redirect:/index/?name=" + foxes.getCurrentFox().getName();
 	}
 }

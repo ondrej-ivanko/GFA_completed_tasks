@@ -27,14 +27,14 @@ public class TrickController {
 	}
 
 	@RequestMapping(value = "/trickCenter", method = RequestMethod.POST)
-	public String addTrick(Model model, @PathParam("name") String name, @RequestParam String trick) {
-		model.addAttribute("name", name);
-		Fox fox = foxes.findFox(name);
+	public String addTrick(Model model, @RequestParam String trick) {
+		model.addAttribute("tricks", foxes.getTricks());
+		Fox fox = foxes.findFox(foxes.getCurrentFox().getName());
 		if (!fox.getTricks().contains(trick)) {
 			fox.getTricks().add(trick);
 			foxes.getTricks().remove(trick);
 		}
-		return "redirect:/index/?name=" + name;
+		return "redirect:/index/?name=" + foxes.getCurrentFox().getName();
 	}
 
 }
