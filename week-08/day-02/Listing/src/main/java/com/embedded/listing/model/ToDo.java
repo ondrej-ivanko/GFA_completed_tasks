@@ -17,7 +17,7 @@ public class ToDo {
 	@Temporal(TemporalType.DATE)
 	private Date date = new Date();
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "toDos")
 	private List<Assignee> assignees = new ArrayList<>();
 
 	public ToDo(){
@@ -88,5 +88,10 @@ public class ToDo {
 
 	public String nameAss() {
 		return this.getAssignees().stream().findAny().get().toString();
+	}
+
+	public void removeAssignee(Assignee assignee) {
+		this.assignees.remove(assignee);
+		assignee.removeAssignee(this);
 	}
 }

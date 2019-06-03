@@ -1,5 +1,6 @@
 package com.embedded.listing;
 
+
 import com.embedded.listing.model.Assignee;
 import com.embedded.listing.model.ToDo;
 import com.embedded.listing.repository.AssigneeRepository;
@@ -16,6 +17,8 @@ public class ListingApplication implements CommandLineRunner {
 
 	@Autowired
 	ToDoRepository toDoRepository;
+	@Autowired
+	AssigneeRepository assigneeRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ListingApplication.class, args);

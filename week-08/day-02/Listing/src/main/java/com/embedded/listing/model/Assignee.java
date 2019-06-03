@@ -9,7 +9,7 @@ public class Assignee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long aId;
+	private Long id;
 	private String name;
 	private String email;
 
@@ -25,7 +25,16 @@ public class Assignee {
 	}
 
 	public void addToDo(ToDo toDo) {
+
 		toDos.add(toDo);
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -44,14 +53,6 @@ public class Assignee {
 		this.email = email;
 	}
 
-	public Long getaId() {
-		return aId;
-	}
-
-	public void setaId(Long aId) {
-		this.aId = aId;
-	}
-
 	public List<ToDo> getToDos() {
 		return toDos;
 	}
@@ -59,4 +60,10 @@ public class Assignee {
 	public void setToDos(List<ToDo> toDos) {
 		this.toDos = toDos;
 	}
+
+	public void removeAssignee(ToDo toDo) {
+		this.toDos.remove(toDo);
+	}
+
+
 }

@@ -1,6 +1,6 @@
 package com.embedded.listing.controller;
 
-
+import com.embedded.listing.model.Assignee;
 import com.embedded.listing.model.ToDo;
 import com.embedded.listing.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -45,13 +46,24 @@ public class ToDoController {
 	public String editItem(@PathVariable long id, Model model) {
 		ToDo item = repository.findById(id).get();
 		model.addAttribute("item", item);
+		model.addAttribute("newAssignee", new Assignee());
+		model.addAttribute("assigneeForDeletion", item.getAssignees());
 		return "editable";
 	}
 
 	@PostMapping(value = "/list/{id}/edit")
-	public String saveChanges(@ModelAttribute ToDo item, @PathVariable long id) {
+	public String saveChanges(@ModelAttribute ToDo item, @ModelAttribute Assignee assignee,
+	                          @RequestParam (required = false) Assignee toRemove,
+	                          @PathVariable long id) {
 		item.setId(id);
-		repository.save(item);
+		if (!assignee.getName().equals("") || !assignee.getEmail().equals("")) {
+			item.addAssignee(assignee);
+			repository.save(item);
+		}
+		if (toRemove != null) {
+			item.removeAssignee(toRemove);
+			item.getAssignees().remove(toRemove);
+		}
 		return "redirect:/todo/list";
 	}
 
