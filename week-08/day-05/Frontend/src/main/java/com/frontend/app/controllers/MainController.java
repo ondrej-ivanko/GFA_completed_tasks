@@ -1,13 +1,10 @@
 package com.frontend.app.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.frontend.app.model.Action;
-import com.frontend.app.model.AppendA;
-import com.frontend.app.model.Doubling;
-import com.frontend.app.model.Person;
+import com.frontend.app.model.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 public class MainController {
@@ -50,13 +47,17 @@ public class MainController {
 	}
 
 	@PostMapping(value = "/dountil/{action}")
-	public @ResponseBody Object repeater(@PathVariable String action, @RequestBody Object jsonString) {
-		
-		Action currAction = new Action(jsonString, action);
-		if (num == null) {
-			return new Error("Please provide a number!");
+	public Object repeater(@PathVariable String action, @RequestBody Until until) {
+		if (until != null) {
+		NumModifier modifier = new NumModifier(until, action);
+		return modifier;
 		} else {
-			return currAction;
+			return new Error("Please provide a number!");
 		}
+	}
+
+	@PostMapping("/arrays")
+	public Object newArrays(@RequestBody What what) {
+
 	}
 }
