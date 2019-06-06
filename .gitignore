@@ -2,6 +2,7 @@
 # Created by https://www.gitignore.io/api/java
 # Edit at https://www.gitignore.io/?templates=java
 
+
 ### Java ###
 # Compiled class file
 *.class
@@ -33,8 +34,17 @@ out/
 *.txt
 *.property
 *.lock
-*.gradle
-*.css
-*.bat
 
-# End of https://www.gitignore.io/api/java
+*.css
+
+
+# 
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/End of https://www.gitignore.io/api/java
