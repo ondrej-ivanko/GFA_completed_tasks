@@ -55,9 +55,4 @@ public class MainController {
 			return new Error("Please provide a number!");
 		}
 	}
-
-	@PostMapping("/arrays")
-	public Object newArrays(@RequestBody What what) {
-
-	}
 }

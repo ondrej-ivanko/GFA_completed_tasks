@@ -27,6 +27,6 @@ public class RepeaterController {
 			}
 		}
 		model.addAttribute("words", words);
-		return "redirect:/repeater";
+		return "wordrepeater";
 	}
 }

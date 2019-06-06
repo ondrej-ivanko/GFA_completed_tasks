@@ -2,16 +2,10 @@ package com.reddit.page.controller;
 
 import com.reddit.page.model.Post;
 import com.reddit.page.repository.PostRepository;
-import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 public class PostController {
@@ -22,7 +16,6 @@ public class PostController {
 	@GetMapping(value = {"", "/"})
 	public String showMainPage(Model model) {
 		model.addAttribute("posts", postRepository.findAll());
-		model.addAttribute("firstTen", postRepository.findPostsByVotesIsNullOrderByVotesDesc());
 		return "index";
 	}
 

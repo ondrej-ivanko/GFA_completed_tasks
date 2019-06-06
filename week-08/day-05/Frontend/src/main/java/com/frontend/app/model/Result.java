@@ -19,12 +19,12 @@ public class Result {
 				count *= num;
 			}
 			this.result = count;
-		} if (action.equals("double")) {
+		} /*if (action.equals("double")) {
 			int[] count = new int[array.length];
 			for (int num = 0; num < array.length; num++) {
 				count[num] = array[num] * 2;
 			}
 			this.result = count;
-		}
+		}*/
 	}
 }

@@ -11,8 +11,7 @@ import java.util.List;
 
 public interface PostRepository extends CrudRepository<Post, Long>, Pageable {
 
-	@Query(
-			value = "SELECT p FROM Post post ORDER BY p.votes DESC")
+	@Query(value = "SELECT p FROM Post post ORDER BY p.votes DESC")
 	List<Post> findAllOnPage(Pageable pageable);
 	List<Post> findAll();
 

@@ -2,7 +2,6 @@ package com.reddit.page.service;
 
 import com.reddit.page.model.Post;
 import com.reddit.page.repository.PostRepository;
-import com.reddit.page.repository.PostRepositorysitory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
