@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrition Store</title>
+</head>
+<body>
+    <li><a th:href="@{/information/(name=${name})}" th:text="Information" th:style="|color: black;|"></a></li>
+    <li><a th:href="@{/nutritionStore/(name=${name})}" th:text="|Nutrition Store|" th:style="|color: black;|"></a></li>
+    <li><a th:href="@{/trickCenter/(name=${name})}" th:text="|Trick Center|" th:style="|color: black;|"></a></li>
+    <form th:action="@{/nutritionStore}" th:object="${food}" th:method="post">
+        <label for="fselection">Food</label>
+        <select id="fselection" th:field="*{food}">
+            <option th:type="food" th:value="${food.food}"  th:text="${food.food}"></option>
+            <option th:type="food" th:value="pizza">pizza</option>
+            <option th:type="food" th:value="cucumber">cucumber</option>
+            <option th:type="food" th:value="eggplant">eggplant</option>
+            <option th:type="food" th:value="strawberry">strawberry</option>
+        </select>
+        <label for="dselection">Drink</label>
+        <select id="dselection" th:field="*{drink}">
+            <option th:type="drink" th:value="${drink.drink}" th:text="${drink.drink}"></option>
+            <option th:type="drink" th:value="whisky">whisky</option>
+            <option th:type="drink" th:value="radler">radler</option>
+            <option th:type="drink" th:value="water">water</option>
+            <option th:type="drink" th:value="|ice tea|">ice tea</option>
+        </select>
+        <button th:type="submit" th:text="Change"}></button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+</head>
+<body>
+    <p th:if="${error}" th:utext="|Your alias is already in use.|"></p>
+    <p th:if="${alias != null and code != null}" th:text="|Your URL is aliased to ${alias}
+                                                and your secret code is ${code}|"></p>
+    <form th:object="${login}" method="post" action="/save-link">
+        <p><label>URL</label>
+        <input type="text" th:field="*{url}"/></p>
+        <p><label>Alias</label>
+        <input type="text" th:field="*{alias}"/></p>
+        <button th:text="Submit" type="submit"></button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:style="'background-color:' + ${color} + ';'">
+    <p>First page</p>
+    <ol>
+        <a href="/useful/email" th:text="${email}"></a>
+        <form action="/useful/encode/" method="post">
+            <input type="text" name="query"><input type="text" name="num"><input type="submit" value="Encode">
+        </form>
+        <form action="/useful/decode/" method="post">
+            <input type="text" name="query"><input type="text" name="num"><input type="submit" value="Decode">
+        </form>
+    </ol>
+</body>
+</html>

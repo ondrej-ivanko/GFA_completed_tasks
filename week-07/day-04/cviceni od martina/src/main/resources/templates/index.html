@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction</title>
+</head>
+<body>
+    <form th:action="@{/Welcome}" th:method="POST">
+        <input id="radio1" type="radio" name="addressing" value="Mr.">
+        <label for="radio1">Mr.</label>
+        <input id="radio2" type="radio" name="addressing" value="Mrs.">
+        <label for="radio2">Mrs.</label>
+        <input id="radio3" type="radio" name="addressing" value="">
+        <label for="radio3">Not specified.</label>
+        <label for="name">First name</label>
+        <input type="text" id="name" name="name">
+        <label for="surname">Last name</label>
+        <input type="text" id="surname" name="surname">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

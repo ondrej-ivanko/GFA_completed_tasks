@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrition Store</title>
+</head>
+<body>
+    <li><a th:href="@{/information/(name=${name})}" th:text="Information" th:style="|color: black;|"></a></li>
+    <li><a th:href="@{/nutritionStore/(name=${name})}" th:text="|Nutrition Store|" th:style="|color: black;|"></a></li>
+    <li><a th:href="@{/trickCenter/(name=${name})}" th:text="|Trick Center|" th:style="|color: black;|"></a></li>
+    <form th:unless="${tricks.isEmpty()}" action="/trickCenter" method="post" th:object="${tricks}">
+        <select th:field="${tricks}">
+            <option th:each="trick : ${tricks}" th:value="${trick}" th:text="${trick}"></option>
+        </select>
+        <button th:type="submit" th:value="${tricks[0]}" th:name="trick">Learn</button>
+    </form>
+    <p th:if="${tricks.isEmpty()}">You have learned all the tricks.</p>
+
+</body>
+</html>

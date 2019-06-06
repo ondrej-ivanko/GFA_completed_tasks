@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Add new Todo</h1>
+    <form method="post" th:object="${newTodo}" action="/todo/add">
+        <input type="hidden" th:field="*{id}">
+        Task name: <input type="text" th:field="*{title}">
+        Urgency: <input type="checkbox" th:field="*{urgent}">
+        <select th:unless="${newTodo.assignees == null or newTodo.assignees.isEmpty()}">
+            <option th:each="assignee : ${newTodo.assignees}" th:text="${assignee.name}">Switch task: </option>
+        </select>
+        <div th:object="${newAssignee}">
+            Assign new Person for the Task: <br>
+            Name: <input type="text" th:field="*{name}">
+            Email: <input type="text" th:field="*{email}">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

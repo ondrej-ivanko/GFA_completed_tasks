@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<body>
+    <form th:action="@{/gfa/isPresent}" th:method="get">
+        <input type="text" name="name" placeholder="Check if student is in Academy">
+    </form>
+    <a th:href="@{/gfa}">Main Page - click here</a>
+</body>
+</html>

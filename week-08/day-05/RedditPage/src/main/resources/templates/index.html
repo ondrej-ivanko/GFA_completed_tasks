@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trending posts</title>
+</head>
+<body>
+    <a href="/addpost">Submit new post</a>
+    <h1>Trending posts</h1>
+    <table aria-sort="descending">
+        <thead>
+        </thead>
+        <tbody>
+        <div th:each="page : ${pages}">
+            <tr th:each="post : ${posts}">
+                <td th:text="*{post.votes}"><a></a></td>
+                <td><a th:href="@{{id}/upvote(id=${post.id})}" th:action="@{{id}/upvote(id=${post.id})}" th:text="|+|"></a></td>
+                <td><a th:unless="${post.votes == 0}" th:href="@{{id}/downvote(id=${post.id})}" th:action="@{{id}/downvote(id=${post.id})}" th:text="|-|"></a></td>
+                <td><a th:text="*{post.header}" th:href="@{{id}/show_content(id=${post.id})}"></a></td>
+                <td th:text="*{post.date}"></td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Add Assignee</h1>
+    <form method="post" th:object="${assignee}" action="/addAssignee">
+        <input type="hidden" th:field="*{id}">
+        Name: <input type="text" th:field="*{name}">
+        Email: <input type="email" th:field="*{email}">
+        Assign Task:
+        <div th:object="${newTask}">
+            <input type="hidden" th:field="*{id}">
+            Urgency: <input type="checkbox" th:field="*{urgent}">
+            Task: <input type="text" th:field="*{title}">
+            Completed: <input type="checkbox" th:field="*{done}">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

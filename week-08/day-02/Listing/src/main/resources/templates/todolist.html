@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title class="align-content-center">ToDo List</title>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body class="list-body">
+<div class="container">
+    <h1 class="text-center">Todos for Today.</h1>
+    <div class="text-center mt-2 mb-2"><span>
+        <a href="/todo/add" class="btn btn-success">Add new Todo</a>
+        <a href="/todo/list" class="btn btn-primary">Todo List</a>
+        <a href="/assignees" class="btn btn-outline-info">Assignees</a></span>
+    </div>
+    <form class="text-left" th:action="@{/todo/list}" method="post">
+        <input id="query-field" name="query" type="text" placeholder="..search for todo..">
+    </form>
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-light">
+            <th class="text-center">id</th>
+            <th class="text-center">Done</th>
+            <th class="text-center">Action</th>
+            <th class="text-center">Urgency</th>
+            <th class="text-center">Assignee</th>
+            <th class="text-center">Creation Date</th>
+            <th class="text-center">Remove</th>
+            <th class="text-center">Edit</th>
+        </thead>
+    <tbody class="container">
+        <tr class="text-center" th:each="item : ${todos}">
+            <td th:text="${item.id}"></td>
+            <td th:if="${item.done == true}"><img src="/x.svg" th:src="@{/x.svg}" /></td>
+            <td th:if="${item.done == false}"><img src="/check.svg" th:src="@{/check.svg}" /></td>
+            <td th:text="${item.title}"></td>
+            <td th:if="${item.urgent == false}"><img src="/x.svg" th:src="@{/x.svg}" /></td>
+            <td th:if="${item.urgent == true}"><img src="/check.svg" th:src="@{/check.svg}" /></td>
+            <td>
+                <div th:unless="${item.assignees.isEmpty()}">
+                <select>
+                    <option th:each="assignee : ${item.assignees}" th:text="${assignee.name}"></option>
+                </select>
+                </div>
+                <div th:if="${item.assignees.isEmpty()}">
+                    <p>None assigned</p>
+                </div>
+            </td>
+            <td th:text="*{item.date}"></td>
+            <td><a class="btn btn-outline-danger" th:href="@{/todo/list/{id}/delete/(id=${item.id})}" th:style="|color: red|">delete</a></td>
+            <td><a class="btn btn-outline-warning" th:href="@{/todo/list/{id}/edit/(id=${item.id})}">edit</a></td>
+        </tr>
+    </table>
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

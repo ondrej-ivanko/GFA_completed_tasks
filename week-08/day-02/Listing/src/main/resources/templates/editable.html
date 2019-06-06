@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<form method="post" th:object="${item}">
+    <input type="hidden" th:field="${item.id}">
+    <label for="urgent" th:text="Urgent"></label>
+    <input id="urgent" type="checkbox" th:field="${item.urgent}">
+    <label for="title" th:text="Title"></label>
+    <input id="title" th:field="*{title}">
+    <label for="done" th:text="Completion"></label>
+    <input id="done" type="checkbox" th:field="${item.done}">
+    <div th:object="${newAssignee}">
+        Assign new Person for the Task: <br>
+        Name: <input type="text" th:field="*{name}">
+        Email: <input type="text" th:field="*{email}">
+    </div>
+    <button type="submit">Save Changes</button>
+    <form method="post" th:href="@{list/{id}/edit(id=${item.id})}">
+        <select th:if="${assigneeForDeletion != null or !assigneeForDeletion.isEmpty()}">
+            <option th:each="assignee : ${assigneeForDeletion}" th:text="${assignee.name}"
+                    th:value="toRemove" th:name="toRemove"></option>
+        </select>
+        <button type="submit">Remove this assignee</button>
+    </form>
+</form>
+</body>
+</html>

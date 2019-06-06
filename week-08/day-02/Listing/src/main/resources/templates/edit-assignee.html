@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit</title>
+    </head>
+    <body>
+        <form method="post" th:object="${assignee}">
+            <input type="hidden" th:field="*{id}">
+            <label for="name" th:text="Name"></label>
+            <input id="name" th:field="*{name}">
+            <label for="email" th:text="Email"></label>
+            <input id="email" type="email" th:field="*{email}">
+            <div>
+                <select th:unless="${assignee.toDos == null or assignee.toDos.isEmpty()}"> Switch task:
+                    <option th:each="task : ${assignee.toDos}" th:text="${task.title}"></option>
+                </select>
+            </div>
+            <div th:object="${newTask}">
+                <input type="hidden" th:field="*{id}">
+                Urgency: <input type="checkbox" th:field="*{urgent}">
+                Task: <input type="text" th:field="*{title}">
+                Completed: <input type="checkbox" th:field="*{done}">
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </body>
+</html>

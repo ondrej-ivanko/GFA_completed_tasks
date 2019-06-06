@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Amazing Webshop</title>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>My Shop</h1>
+        </header>
+    <table>
+        <th><form action="/only-available" method="get"><input type="submit" value="Only Available"></form></th>
+        <th><form action="/cheapest-first" method="get"><input type="submit" value="Cheapest First"></form></th>
+        <th><form action="/contains-nike" method="get"><input type="submit" value="Contains Nike"></form></th>
+        <th><form action="/average-stock" method="get"><input type="submit" value="Average Stock"></form></th>
+        <th><form action="/most-expensive" method="get"><input type="submit" value="Most Expensive Available"></form></th>
+    </table>
+        <header>
+            <span class="average-label">Average stock: </span><span th:text="${averagestock}" id="avg-var"></span>
+        </header>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/repeater" method="post">
+        <label for="word">word-to-repeat</label>
+        <input id="word" type="text" name="word">
+        <label for="paragraphCount">words-per-line</label>
+        <input id="paragraphCount" type="number" name="perParagraph">
+        <label for="lines">number-of-lines</label>
+        <input id="lines" type="number" name="lines">
+        <button type="submit">Show Word</button>
+    </form>
+    <div>
+        <p th:if="${words != null}" th:each="word : ${words}" th:text="${word}"></p>
+    </div>
+</body>
+</html>
