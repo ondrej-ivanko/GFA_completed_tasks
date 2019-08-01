@@ -46,5 +46,10 @@ out/
 /nbdist/
 /.nb-gradle/
 
+HELP.md
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
 ### VS Code ###
 .vscode/End of https://www.gitignore.io/api/java
